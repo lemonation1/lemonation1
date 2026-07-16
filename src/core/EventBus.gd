@@ -19,6 +19,7 @@ signal set_bonus_deactivated(set_id: String)
 signal body_part_equipped(part_id: String, slot: int)
 signal body_part_unequipped(slot: int)
 signal body_part_overloaded(is_overloaded: bool)
+signal body_part_picked_up(part_id: String)  # 拾取部件进入库存
 signal ability_unlocked(ability: String)
 
 # 流派系统

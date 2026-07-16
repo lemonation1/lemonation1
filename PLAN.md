@@ -87,12 +87,20 @@
 
 ### 2.2 身体部件系统
 - [x] 创建部件数据 .tres (克苏鲁触手/克苏鲁之眼/莎布血肉/米戈螯钳/深潜者鳃) (2026-07-16)
-- [ ] 实现部件装备UI (BodyPartEquipScreen)
+- [x] 实现部件装备UI (BodyPartEquipScreen) (2026-07-16)
+  - 参考 Hollow Knight Silksong Crest 系统: 人体轮廓8槽位 + 部件库存 + 详情面板
+  - BodyPartEquipScreen.tscn/gd - 左侧人体轮廓(头/躯干/双臂/双腿/背/血肉增生) + 中间部件库(按槽位筛选) + 右侧详情(属性/SAN代价/能力/视觉/套装)
+  - 流派色编码(血脉珊瑚/知识青灰/守心苔绿/双修暗金/无色灰) + 稀有度边框
+  - 交互: 点击槽位筛选/点击部件查看详情/双击装备/右键卸下/B键开关
+  - 底部状态: 槽位占用/超载警告/SAN污染总量
 - [x] 实现部件属性加成生效 (接入Player属性) (2026-07-16)
   - StatsModifier.gd 集中管理: 部件stat_bonuses(attack/defense/move_speed/spell_damage)自动应用
 - [x] 实现部件能力解锁 (二段跳/水下呼吸/传送等) (2026-07-16)
   - 二段跳已接入Player (BodyPartManager.has_ability("double_jump"))
   - 水下呼吸/传送等待后续关卡机制实现时接入
+- [x] 实现部件库存系统 (BodyPartManager扩展) (2026-07-16)
+  - 新增 _owned_parts 库存 + pickup_part() + get_owned_parts_for_slot()
+  - 装备前必须先拥有, 卸下后能力自动重算
 - [ ] 实现部件超载视觉反馈
 
 ### 2.3 变异系统

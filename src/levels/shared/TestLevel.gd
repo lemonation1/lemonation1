@@ -40,8 +40,20 @@ func _ready() -> void:
 	_spawn_item_pickup("elder_sign_small", Vector2(300, 580))
 	_spawn_item_pickup("necronomicon_page", Vector2(700, 400))
 
+	# 给玩家初始部件用于测试装备界面 (B键打开)
+	_give_test_parts()
+
 	# 连接关卡完成信号
 	EventBus.enemy_killed.connect(_on_enemy_killed)
+
+
+## 给玩家初始部件用于测试装备界面
+func _give_test_parts() -> void:
+	BodyPartManager.pickup_part("cthulhu_tentacle")
+	BodyPartManager.pickup_part("cthulhu_eye")
+	BodyPartManager.pickup_part("deep_one_gill")
+	BodyPartManager.pickup_part("migo_chela")
+	BodyPartManager.pickup_part("shub_flesh")
 
 
 func _spawn_enemies() -> void:

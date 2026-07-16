@@ -2,6 +2,7 @@ extends Node2D
 ## 主场景 - 游戏入口，管理场景切换
 
 const MutationSelectScene = preload("res://src/ui/MutationSelectScreen.tscn")
+const BodyPartEquipScene = preload("res://src/ui/BodyPartEquipScreen.tscn")
 
 @onready var _scene_container: Node = $SceneContainer
 @onready var _ui_layer: CanvasLayer = $UILayer
@@ -9,6 +10,7 @@ const MutationSelectScene = preload("res://src/ui/MutationSelectScreen.tscn")
 
 var _current_scene: Node = null
 var _mutation_screen: Control = null
+var _equip_screen: Control = null
 
 func _ready() -> void:
     EventBus.world_switched.connect(_on_world_switched)
@@ -72,8 +74,29 @@ func _on_mutation_selected(mutation_id: String) -> void:
             EventBus.show_notification.emit("章节完成!", 0)
     )
 
+## 打开部件装备界面 (B键)
+func _open_equip_screen() -> void:
+    if _equip_screen != null or _mutation_screen != null:
+        return
+    if GameManager.get_current_state() != GameManager.GameState.PLAYING:
+        return
+    get_tree().paused = true
+    _equip_screen = BodyPartEquipScene.instantiate()
+    _ui_layer.add_child(_equip_screen)
+    _equip_screen.open()
+    _equip_screen.closed.connect(_on_equip_closed)
+
+func _on_equip_closed() -> void:
+    _equip_screen = null
+    get_tree().paused = false
+
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("escape") and GameManager.get_current_state() == GameManager.GameState.PLAYING:
         GameManager.change_state(GameManager.GameState.PAUSED)
         var pause_menu = preload("res://src/ui/PauseMenu.tscn").instantiate()
         _ui_layer.add_child(pause_menu)
+    # B键打开部件装备界面
+    if event is InputEventKey and event.pressed and event.keycode == KEY_B:
+        if GameManager.get_current_state() == GameManager.GameState.PLAYING:
+            _open_equip_screen()
+            get_viewport().set_input_as_handled()
