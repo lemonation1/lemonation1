@@ -22,3 +22,6 @@ Thumbs.db
 
 # Save files
 user://saves/
+
+# Godot MCP plugin (third-party addon)
+/addons/godot_mcp/
