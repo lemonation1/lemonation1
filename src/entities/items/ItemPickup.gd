@@ -73,7 +73,12 @@ func _pickup() -> void:
 	if _item_id != "":
 		InventoryManager.add_item(_item_id)
 		var display_name = _item_data.display_name if _item_data != null else _item_id
-		EventBus.show_notification.emit("获得: " + display_name, 0)
+		var lore = _item_data.lore_short if _item_data != null and _item_data.lore_short != "" else ""
+		if lore != "":
+			# 拾取时显示短评 (一句)
+			EventBus.show_notification.emit("获得: " + display_name + "\n「" + lore + "」", 0)
+		else:
+			EventBus.show_notification.emit("获得: " + display_name, 0)
 	# 拾取特效
 	_spawn_pickup_effect()
 	queue_free()

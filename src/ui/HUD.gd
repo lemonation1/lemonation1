@@ -10,7 +10,11 @@ extends Control
 @onready var _world_layer_label: Label = $TopRight/InfoPanel/InfoContainer/WorldLayerLabel
 @onready var _active_slots_container: HBoxContainer = $BottomCenter/ActiveSlots
 @onready var _notification_label: Label = $Center/Notification
+@onready var _detail_hint: Label = $DetailHint
+@onready var _item_detail_popup: Control = $ItemDetailPopup
 @onready var _hp_container: HBoxContainer = $TopLeft/SANPanel/SANContainer/HPContainer
+
+var _last_picked_item: Resource = null  # 最近拾取的道具 (按L查看详情)
 
 
 func _ready() -> void:
@@ -21,6 +25,7 @@ func _ready() -> void:
 	EventBus.world_switched.connect(_on_world_switched)
 	EventBus.faction_level_changed.connect(_on_faction_changed)
 	EventBus.active_item_used.connect(_on_active_item_used)
+	EventBus.item_picked_up.connect(_on_item_picked_up)
 	_update_san_display(SANManager.current_san, SANManager.san_max)
 	_update_stage_display(SANManager.get_stage())
 	# 等待玩家出现后连接HP信号
@@ -48,6 +53,8 @@ func _apply_theme() -> void:
 	UITheme.style_label(_world_layer_label, GameConstants.THEME_TEXT_DIM)
 	UITheme.style_label(_notification_label, GameConstants.THEME_TEXT_LIGHT)
 	_notification_label.add_theme_font_size_override("font_size", 18)
+	UITheme.style_label(_detail_hint, GameConstants.THEME_ACCENT_GOLD)
+	_detail_hint.add_theme_font_size_override("font_size", 13)
 
 
 func _on_san_changed(current: float, max_san: float) -> void:
@@ -66,6 +73,30 @@ func _on_show_notification(text: String, type: int) -> void:
 	tween.tween_interval(1.5)
 	tween.parallel().tween_property(_notification_label, "modulate:a", 0.0, 0.8)
 	tween.parallel().tween_property(_notification_label, "position:y", -10.0, 0.8)
+
+
+## 道具拾取: 记录最近道具并显示"按L查看详情"提示
+func _on_item_picked_up(item_id: String, _count: int) -> void:
+	_last_picked_item = InventoryManager.get_item_data(item_id)
+	if _last_picked_item == null:
+		return
+	# 显示提示 (有详细介绍时才提示)
+	if _last_picked_item.lore_text != "":
+		_detail_hint.modulate.a = 0.85
+		var hint_tween := create_tween()
+		hint_tween.tween_interval(4.0)
+		hint_tween.tween_property(_detail_hint, "modulate:a", 0.0, 1.0)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	# 弹窗已打开时不处理
+	if _item_detail_popup.visible:
+		return
+	# 按 L 键打开最近拾取道具的详情
+	if event is InputEventKey and event.pressed and event.keycode == KEY_L:
+		if _last_picked_item != null and not _item_detail_popup.visible:
+			_item_detail_popup.show_item(_last_picked_item)
+			get_viewport().set_input_as_handled()
 
 
 func _on_world_switched(layer: int) -> void:

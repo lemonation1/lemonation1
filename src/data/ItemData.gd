@@ -30,6 +30,7 @@ enum SourcePool { ARKHAM, INNSMOUTH, DUNWICH, NKAI, MADNESS_MOUNTAINS, DREAMLAND
 @export var charge_type: String  # "per_level", "per_run", "recharge"
 @export var set_id: String  # 套装ID
 @export var faction_tags: Array[String]  # ["blood", "knowledge", "heart"]
-@export_multiline var lore_text: String
+@export var lore_text: String  # 详细介绍 (点击查看)
+@export var lore_short: String  # 短评 (拾取/悬停显示, 一句话)
 @export var san_cost_on_use: int = 0  # 主动使用消耗SAN
 @export var permanent_san_cap_cost: int = 0  # 永久上限代价

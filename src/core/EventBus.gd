@@ -46,6 +46,7 @@ signal meta_progress_updated(key: String, value)
 signal show_notification(text: String, type: int)
 signal show_dialog(text: String, speaker: String)
 signal ui_state_changed(state: String)
+signal request_item_detail(item_id: String)  # 请求显示道具详情弹窗
 
 # 邪神交易
 signal elder_god_trade_offered(god_id: String, offer: Dictionary)

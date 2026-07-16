@@ -19,6 +19,8 @@
 - [x] UI框架 (HUD/MainMenu/PauseMenu/GameOverScreen)
 - [x] 测试关卡 (TestLevel.tscn - 平台跳跃验证)
 - [x] 工具类 (Dice/GameConstants/UITheme)
+- [x] 道具故事文本 (25个道具均含 lore_short 短评 + lore_text 详细介绍, 参考克苏鲁原著)
+- [x] 道具详情弹窗 (ItemDetailPopup - 拾取显示短评, 按L查看详细介绍)
 
 ### 未完成 (按优先级排序)
 
@@ -112,7 +114,10 @@
 ### 3.1 背包界面
 - [ ] InventoryScreen.tscn/gd - 显示所有道具/材料/钥匙
 - [ ] 主动道具快捷栏拖拽装备
-- [ ] 道具详情弹窗 (效果/代价/描述/传说文本)
+- [x] 道具详情弹窗 (效果/代价/短评/详细介绍) (2026-07-16)
+  - ItemDetailPopup.tscn/gd - 点击/按L键弹出, 含短评(lore_short)和详细介绍(lore_text)
+  - 拾取时显示短评通知 + "按L查看详情"提示
+  - 25个道具均已填充克苏鲁原著故事背景的短评与介绍
 
 ### 3.2 变异选择界面
 - [ ] MutationSelectScreen.tscn/gd - 通关后三选一
