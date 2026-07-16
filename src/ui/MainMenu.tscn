@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://menu_scene_001"]
+
+[ext_resource type="Script" path="res://src/ui/MainMenu.gd" id="1"]
+
+[node name="MainMenu" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.06, 0.15, 0.95)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="VBox"]
+text = "克苏鲁神话"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+
+[node name="Subtitle" type="Label" parent="VBox"]
+text = "Roguelike × 银河恶魔城"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+
+[node name="Spacer" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 20)
+
+[node name="StartButton" type="Button" parent="VBox"]
+text = "开始新游戏"
+custom_minimum_size = Vector2(200, 40)
+
+[node name="ContinueButton" type="Button" parent="VBox"]
+text = "继续游戏"
+custom_minimum_size = Vector2(200, 40)
+
+[node name="QuitButton" type="Button" parent="VBox"]
+text = "退出"
+custom_minimum_size = Vector2(200, 40)
