@@ -24,11 +24,9 @@ const PLAYER_DASH_SPEED: float = 620.0
 const PLAYER_DASH_DURATION: float = 0.16
 const PLAYER_DASH_COOLDOWN: float = 0.45
 const PLAYER_DASH_END_SPEED: float = 300.0
-const PLAYER_AIR_DASH_COUNT: int = 1  # 空中冲刺次数（丝之歌核心）
 const PLAYER_DASH_END_LIFT: float = -60.0  # 冲刺结束给一点上抬，防止直接栽下去
 const PLAYER_DASH_GHOST_INTERVAL: float = 0.02  # 残影生成间隔
 const PLAYER_DASH_GHOST_LIFETIME: float = 0.35  # 残影存活时间
-const PLAYER_DASH_ATTACK_SPEED_MULT: float = 1.3  # 冲刺攻击速度倍率
 
 # 攻击
 const PLAYER_ATTACK_DURATION: float = 0.18
@@ -36,37 +34,12 @@ const PLAYER_ATTACK_COMBO_WINDOW: float = 0.32
 const PLAYER_ATTACK_MAX_COMBO: int = 3
 const PLAYER_HIT_STOP_DURATION: float = 0.06
 const PLAYER_ATTACK_KNOCKBACK: float = 200.0
-# 攻击变体（丝之歌上劈/下劈/冲刺攻击）
-const PLAYER_ATTACK_UP_DURATION: float = 0.20
-const PLAYER_ATTACK_DOWN_DURATION: float = 0.22
-const PLAYER_ATTACK_DASH_DURATION: float = 0.24
-const PLAYER_ATTACK_UP_SIZE: Vector2 = Vector2(28, 48)
-const PLAYER_ATTACK_DOWN_SIZE: Vector2 = Vector2(32, 44)
-const PLAYER_ATTACK_DASH_SIZE: Vector2 = Vector2(56, 30)
-const PLAYER_ATTACK_DASH_SPEED: float = 700.0
-const PLAYER_ATTACK_CANCEL_WINDOW: float = 0.08  # 攻击可被冲刺取消的窗口（从攻击开始算）
-const PLAYER_ATTACK_RECOIL: float = 120.0  # 命中时的后坐力（水平）
-const PLAYER_POGO_BOUNCE: float = -480.0  # 下劈命中时的反弹力度
-const PLAYER_POGO_BOUNCE_ENEMY: float = -540.0  # 下劈命中敌人时更强反弹
-const PLAYER_ATTACK_HIT_STOP_UP: float = 0.08
-const PLAYER_ATTACK_HIT_STOP_DOWN: float = 0.10
-const PLAYER_ATTACK_HIT_STOP_DASH: float = 0.09
+const PLAYER_ATTACK_CANCEL_WINDOW: float = 0.08  # 攻击启动后可被冲刺取消的窗口（取消链）
 
-# 墙跳（丝之歌滑墙 + 蹬墙跳）
-const PLAYER_WALL_SLIDE_SPEED: float = 120.0  # 贴墙下滑最大速度
-const PLAYER_WALL_SLIDE_ACCEL: float = 600.0
-const PLAYER_WALL_JUMP_VX: float = 320.0  # 蹬墙跳水平推力
-const PLAYER_WALL_JUMP_VY: float = -400.0  # 蹬墙跳竖直推力
-const PLAYER_WALL_JUMP_LOCK_TIME: float = 0.18  # 蹬墙后锁定水平输入时间
-const PLAYER_WALL_STICK_TIME: float = 0.25  # 离墙后仍可蹬墙的时间
-const PLAYER_WALL_DETECT_DISTANCE: float = 12.0
-const PLAYER_CLING_SPEED: float = 30.0  # 贴墙时极慢下滑（刚贴上时）
-
-# 输入缓冲（统一缓冲队列）
+# 输入缓冲（统一缓冲队列 - 跳跃/冲刺/攻击均可预输入）
 const PLAYER_BUFFER_JUMP: float = 0.15
 const PLAYER_BUFFER_DASH: float = 0.18
 const PLAYER_BUFFER_ATTACK: float = 0.14
-const PLAYER_BUFFER_JUMP_CUT: float = 0.10
 
 # 转身
 const PLAYER_TURN_SPEED: float = 22.0  # 转身时的速度衰减插值
@@ -76,8 +49,6 @@ const PLAYER_SQUASH_LERP: float = 15.0
 const PLAYER_SQUASH_JUMP: Vector2 = Vector2(0.82, 1.22)
 const PLAYER_SQUASH_LAND: Vector2 = Vector2(1.22, 0.82)
 const PLAYER_SQUASH_DASH: Vector2 = Vector2(1.3, 0.7)
-const PLAYER_SQUASH_WALL_SLIDE: Vector2 = Vector2(0.88, 1.12)
-const PLAYER_SQUASH_POGO: Vector2 = Vector2(0.75, 1.30)
 const PLAYER_SQUASH_TURN: Vector2 = Vector2(1.15, 0.85)
 
 # 相机
