@@ -12,14 +12,16 @@ const ItemPickupScene = preload("res://src/entities/items/ItemPickup.tscn")
 
 
 func _ready() -> void:
-	# 阴郁背景：深沉去饱和暗色 + 灰紫雾感
-	_background.color = GameConstants.THEME_BG_DEEP
+	# 氛围渐变: 从AtmosphereManager获取当前章节基调
+	_background.color = AtmosphereManager.current_bg_color
 	_background_layer.color = Color(
 		GameConstants.THEME_ACCENT_PURPLE.r,
 		GameConstants.THEME_ACCENT_PURPLE.g,
 		GameConstants.THEME_ACCENT_PURPLE.b,
-		0.06
+		AtmosphereManager.current_fog_density * 0.4  # 雾气浓度随氛围渐变
 	)
+	# 设置当前章节
+	AtmosphereManager.set_chapter("C1")
 
 	# 设置区域污染倍率
 	SANManager.set_pollution_multiplier(1.0)

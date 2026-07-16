@@ -16,7 +16,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_update_shake(delta)
 	_update_lookahead(delta)
-	offset = _base_offset + _lookahead + _shake_offset
+	# 氛围呼吸晃动: SAN低时画面持续微晃, 像呼吸一样不规则
+	var sway = AtmosphereManager.get_sway_offset()
+	# 闪烁时画面微暗 (通过offset模拟, 实际应通过shader/overlay实现)
+	offset = _base_offset + _lookahead + _shake_offset + sway
 
 ## 添加屏幕震动（0~1，二次方衰减）
 func add_trauma(amount: float) -> void:

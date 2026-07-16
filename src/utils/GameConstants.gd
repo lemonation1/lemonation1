@@ -99,6 +99,43 @@ const THEME_SAN_CRITICAL: Color = Color(0.45, 0.20, 0.26, 1.0)     # 深暗红
 const THEME_PLAYER_BODY: Color = Color(0.28, 0.45, 0.52, 1.0)
 const THEME_PLAYER_OUTLINE: Color = Color(0.12, 0.22, 0.28, 1.0)
 
+# === 氛围渐变系统 (渐进式疯狂) ===
+# 章节基调: 随游戏进度永久渐暗, 每章比上章更压抑
+# 背景色 / 雾气浓度 / 暗影强度 / 饱和度偏移
+const ATMOSPHERE_CHAPTER_TINT: Array[Dictionary] = [
+	# C1: 沉郁静谧 — 冷灰蓝, 轻雾
+	{"bg": Color(0.06, 0.07,0.11), "fog": 0.15, "shadow": 0.3, "sat_shift": 0.0, "hue_shift": 0.0},
+	# C2: 荒凉寂寒 — 更暗, 灰青
+	{"bg": Color(0.05,0.06,0.09), "fog": 0.22, "shadow": 0.4, "sat_shift": -0.05, "hue_shift": -0.02},
+	# C3: 腐败腥气 — 偏绿灰, 雾更浓
+	{"bg": Color(0.05,0.07,0.07), "fog": 0.30, "shadow": 0.5, "sat_shift": -0.08, "hue_shift": 0.03},
+	# C4: 不安扭曲 — 暗褐红, 开始有色差
+	{"bg": Color(0.07,0.05,0.06), "fog": 0.38, "shadow": 0.6, "sat_shift": -0.10, "hue_shift": -0.03},
+	# C5: 幻梦侵蚀 — 灰紫, 饱和度略回升(病态)
+	{"bg": Color(0.06,0.05,0.08), "fog": 0.45, "shadow": 0.7, "sat_shift": 0.05, "hue_shift": 0.05},
+	# C6: 现实崩裂 — 深暗紫, 病态饱和
+	{"bg": Color(0.05,0.04,0.09), "fog": 0.55, "shadow": 0.8, "sat_shift": 0.12, "hue_shift": 0.08},
+	# C7: 深渊低语 — 近黑, 强扭曲
+	{"bg": Color(0.03,0.03,0.07), "fog": 0.65, "shadow": 0.9, "sat_shift": 0.18, "hue_shift": 0.10},
+	# C8: 终焉疯狂 — 最暗, 最大扭曲
+	{"bg": Color(0.02,0.02,0.05), "fog": 0.75, "shadow": 1.0, "sat_shift": 0.25, "hue_shift": 0.15},
+]
+
+# SAN阶段实时扭曲: 叠加在章节基调之上, SAN越低扭曲越强(可恢复)
+# 暗角强度 / 色差偏移 / 呼吸晃动幅度 / 画面摇晃频率
+const ATMOSPHERE_SAN_DISTORTION: Array[Dictionary] = [
+	# SOBER (清醒): 几乎无扭曲
+	{"vignette": 0.15, "chromatic": 0.0, "sway_amp": 0.0, "sway_freq": 0.0, "flicker": 0.0},
+	# UNEASY (不安): 轻微暗角加深, 偶有微晃
+	{"vignette": 0.25, "chromatic": 0.3, "sway_amp": 0.5, "sway_freq": 0.3, "flicker": 0.0},
+	# MAD (疯狂): 明显色差, 呼吸式晃动, 偶有闪烁
+	{"vignette": 0.40, "chromatic": 1.0, "sway_amp": 1.5, "sway_freq": 0.8, "flicker": 0.15},
+	# COLLAPSE (崩溃): 强色差, 持续晃动, 频繁闪烁
+	{"vignette": 0.55, "chromatic": 2.0, "sway_amp": 3.0, "sway_freq": 1.5, "flicker": 0.35},
+	# ZERO (归零): 画面接近崩坏但仍可读
+	{"vignette": 0.70, "chromatic": 3.5, "sway_amp": 5.0, "sway_freq": 2.5, "flicker": 0.50},
+]
+
 # === SAN 系统 ===
 const SAN_BASE_MAX: float = 100.0
 const SAN_MIN_MAX: float = 30.0
