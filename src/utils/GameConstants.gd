@@ -158,6 +158,34 @@ const COLLISION_LAYER_TERRAIN: int = 8
 const COLLISION_LAYER_INTERACTABLE: int = 16
 const COLLISION_LAYER_ITEM: int = 32
 
+# === 敌人系统 ===
+const ENEMY_GRAVITY: float = 980.0
+const ENEMY_MAX_FALL_SPEED: float = 480.0
+const ENEMY_FLASH_DURATION: float = 0.08  # 受击闪白时长
+const ENEMY_DEATH_FADE_DURATION: float = 0.3  # 死亡淡出时长
+const ENEMY_KNOCKBACK_FRICTION: float = 1200.0  # 击退减速
+const ENEMY_DETECT_RANGE: float = 220.0  # 发现玩家距离
+const ENEMY_ATTACK_RANGE: float = 36.0  # 攻击距离
+const ENEMY_ATTACK_COOLDOWN: float = 0.8  # 攻击间隔
+const ENEMY_ATTACK_WINDUP: float = 0.25  # 攻击前摇
+const ENEMY_ATTACK_DURATION: float = 0.2  # 攻击持续
+const ENEMY_PATROL_SPEED_MULT: float = 0.4  # 巡逻速度倍率
+const ENEMY_CHASE_SPEED_MULT: float = 1.0  # 追击速度倍率
+const ENEMY_SAN_DAMAGE_RANGE: float = 180.0  # 目击SAN损失生效距离
+const ENEMY_DROP_PICKUP_RADIUS: float = 60.0  # 掉落物散布半径
+const ENEMY_DROP_CHANCE: float = 0.35  # 基础掉落概率
+
+# 敌人配色 (Q版柔和)
+const THEME_ENEMY_CULTIST: Color = Color(0.65, 0.45, 0.55, 1.0)  # 邪教徒 - 暗红紫
+const THEME_ENEMY_DEEPONE: Color = Color(0.40, 0.55, 0.50, 1.0)  # 深潜者 - 灰绿
+const THEME_ENEMY_OUTLINE: Color = Color(0.15, 0.15, 0.22, 1.0)  # 敌人描边
+const THEME_ENEMY_HURT: Color = Color(1.0, 0.9, 0.9, 1.0)  # 受击闪白
+
+# === 玩家生命系统 ===
+const PLAYER_MAX_HP: int = 5
+const PLAYER_HURT_INVINCIBLE_TIME: float = 0.8  # 受伤无敌时间
+const PLAYER_HURT_KNOCKBACK: float = 180.0
+
 # 组名
 const GROUP_ENEMIES: String = "enemies"
 const GROUP_ITEMS: String = "items"

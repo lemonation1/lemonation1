@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cross"
+display_name = "十字架"
+display_name_en = "Cross"
+rarity = 1
+item_type = 0
+category = 1
+description = "+3 SAN抗性"
+effect_description = "+3 SAN抗性"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 0
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["heart"])
+lore_text = "朴素的十字架，给人一丝安宁..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

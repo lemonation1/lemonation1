@@ -49,12 +49,19 @@ var _squash_reset_timer: float = 0.0
 var _is_invincible: bool = false
 var _hurt_invincible_timer: float = 0.0
 
+# === 生命值 ===
+var _hp: int = GameConstants.PLAYER_MAX_HP
+var _max_hp: int = GameConstants.PLAYER_MAX_HP
+signal hp_changed(current: int, max_hp: int)
+
 
 func _ready() -> void:
+	add_to_group("player_group")
 	_attack_shape.disabled = true
 	_attack_area.body_entered.connect(_on_attack_body_entered)
 	if BodyPartManager.has_ability("double_jump"):
 		_can_double_jump = true
+	hp_changed.emit(_hp, _max_hp)
 
 
 func _physics_process(delta: float) -> void:
@@ -342,9 +349,14 @@ func _on_attack_body_entered(body: Node2D) -> void:
 	# 命中停顿 + 屏幕震动
 	GameManager.trigger_hit_stop(GameConstants.PLAYER_HIT_STOP_DURATION)
 	_camera.add_trauma(GameConstants.SHAKE_ATTACK_HIT)
-	# 击退敌人
-	if body.has_method("apply_knockback"):
-		body.apply_knockback(Vector2(_facing, -0.3).normalized(), GameConstants.PLAYER_ATTACK_KNOCKBACK)
+	# 对敌人造成伤害 + 击退
+	var hit_dir = Vector2(_facing, -0.3).normalized()
+	if body.has_method("take_damage"):
+		# 连击段越高伤害越高
+		var dmg = 10 + _combo_count * 5
+		body.take_damage(dmg, hit_dir)
+	elif body.has_method("apply_knockback"):
+		body.apply_knockback(hit_dir, GameConstants.PLAYER_ATTACK_KNOCKBACK)
 	# 命中减速 - 增强打击感
 	velocity.x *= 0.3
 
@@ -446,5 +458,35 @@ func apply_knockback(direction: Vector2, force: float) -> void:
 	_camera.add_trauma(GameConstants.SHAKE_HURT)
 
 
+## 外部调用 - 敌人攻击命中玩家时调用
+func take_damage(amount: int, from_direction: Vector2) -> void:
+	if _is_invincible or _is_dashing:
+		return
+	_hp = max(0, _hp - amount)
+	hp_changed.emit(_hp, _max_hp)
+	# 受击击退
+	velocity = from_direction * GameConstants.PLAYER_HURT_KNOCKBACK
+	velocity.y = -120.0
+	_is_invincible = true
+	_hurt_invincible_timer = GameConstants.PLAYER_HURT_INVINCIBLE_TIME
+	_camera.add_trauma(GameConstants.SHAKE_HURT)
+	_squash(Vector2(1.3, 0.7), 0.1)
+	if _hp <= 0:
+		EventBus.player_died.emit("hp_zero")
+
+
 func get_facing() -> int:
 	return _facing
+
+
+func get_hp() -> int:
+	return _hp
+
+
+func get_max_hp() -> int:
+	return _max_hp
+
+
+func heal(amount: int) -> void:
+	_hp = min(_max_hp, _hp + amount)
+	hp_changed.emit(_hp, _max_hp)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemPoolData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemPoolData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+pool_type = 4
+display_name = "疯狂山脉"
+area = "南极/古老者遗迹"
+item_weights = {"migo_chela_frag": 1.0, "migo_gun_frag": 0.7, "material_eldritch_residue": 0.9}
+depleted = false
+special_items = Array[String]([])
+special_count_modifier = 1.0

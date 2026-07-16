@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "yellow_mark_small"
+display_name = "黄色印记小"
+display_name_en = "Lesser Yellow Sign"
+rarity = 1
+item_type = 0
+category = 4
+description = "+3%精神攻击"
+effect_description = "+3% 精神攻击"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 2
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "诡异的黄色符号..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

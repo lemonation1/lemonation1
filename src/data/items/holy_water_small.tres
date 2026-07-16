@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "holy_water_small"
+display_name = "圣水小"
+display_name_en = "Lesser Holy Water"
+rarity = 1
+item_type = 1
+category = 8
+description = "主动1d4 SAN恢复"
+effect_description = "恢复 1d4 SAN"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 8
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = 1
+charge_type = "per_level"
+set_id = ""
+faction_tags = Array[String](["heart"])
+lore_text = "瓶中的水散发着微弱的圣光..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

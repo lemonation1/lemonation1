@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "elder_sign_amulet"
+display_name = "旧印护符"
+display_name_en = "Elder Sign Amulet"
+rarity = 1
+item_type = 0
+category = 11
+description = "+5%抗精神"
+effect_description = "+5% 抗精神"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 8
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["heart"])
+lore_text = "刻有旧印的护身符..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

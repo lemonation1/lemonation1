@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "material_eldritch_residue"
+display_name = "深渊残渣"
+display_name_en = "Eldritch Residue"
+rarity = 1
+item_type = 3
+category = 4
+description = "合成材料"
+effect_description = "通用合成材料"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 11
+is_special = false
+max_stack = 99
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String]([])
+lore_text = "未知的粘稠物质..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

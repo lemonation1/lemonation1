@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "deep_one"
+display_name = "深潜者"
+category = 0
+serves_deity = "达贡"
+description = "半人半鱼的深海种族"
+habitat = "印斯茅斯/拉莱耶"
+combat_role = 0
+base_hp = 70
+base_damage = 12
+base_speed = 70.0
+abilities = Array[String](["water_breath"])
+special_mechanics = Array[String]([])
+san_loss_on_sight_first = "1d4"
+san_loss_on_sight_repeat = "0/1"
+is_servant_race = true
+weakness = ""
+drop_table = {"green": Array[String](["deepone_scale", "dagon_scale_frag"]), "blue": Array[String]([])}

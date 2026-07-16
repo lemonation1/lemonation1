@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemPoolData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemPoolData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+pool_type = 1
+display_name = "印斯茅斯"
+area = "印斯茅斯/魔鬼礁"
+item_weights = {"deepone_scale": 1.0, "dagon_scale_frag": 0.8, "hydra_tear": 0.7, "material_eldritch_residue": 0.9}
+depleted = false
+special_items = Array[String]([])
+special_count_modifier = 1.0

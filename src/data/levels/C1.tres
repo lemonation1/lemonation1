@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/LevelData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+chapter_id = "C1"
+level_name = "拉莱耶终章"
+story_source = "克苏鲁的呼唤 (1928)"
+core_deities = Array[String](["克苏鲁", "达贡", "海德拉"])
+area_boss = "cthulhu"
+hidden_bosses = Array[String]([])
+unlock_ability = ""
+pollution_multiplier = 1.0
+recommended_faction = 3
+sub_levels = Array[Dictionary]([{"id": "C1-1", "scene": "res://src/levels/shared/TestLevel.tscn", "boss": "", "mechanic": "教学:移动/跳跃/攻击"}, {"id": "C1-2", "scene": "", "boss": "", "mechanic": "回忆:威尔考克斯梦境"}, {"id": "C1-3", "scene": "", "boss": "cultist_priest", "mechanic": "战斗+潜行:沼泽邪教"}, {"id": "C1-4", "scene": "", "boss": "", "mechanic": "登岛:水位/潮汐"}, {"id": "C1-5", "scene": "", "boss": "", "mechanic": "迷宫:非欧几何"}, {"id": "C1-6", "scene": "", "boss": "", "mechanic": "解谜:开门"}, {"id": "C1-7", "scene": "", "boss": "cthulhu", "mechanic": "逃亡:克苏鲁追击"}])
+key_mechanics = Array[String](["三段嵌套叙事", "非欧几何迷宫", "潮汐机制", "克苏鲁追击战"])
+green_drops = Array[String](["necronomicon_page", "elder_sign_small", "deepone_scale"])
+blue_drops = Array[String](["dagon_scale_frag"])
+purple_drops = Array[String]([])
+orange_drops = Array[String]([])
+red_drops = Array[String]([])
+has_multiple_endings = false
+endings = Array[String]([])

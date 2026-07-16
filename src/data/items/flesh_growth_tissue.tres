@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "flesh_growth_tissue"
+display_name = "血肉增生组织"
+display_name_en = "Flesh Growth Tissue"
+rarity = 1
+item_type = 0
+category = 5
+description = "+1血肉增生槽等级"
+effect_description = "+1 血肉增生槽"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 11
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["blood"])
+lore_text = "蠕动的肉块，散发着不祥的气息..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

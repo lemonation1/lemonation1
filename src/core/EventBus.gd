@@ -30,6 +30,7 @@ signal level_loaded(chapter_id: String, sub_level_id: String)
 signal level_completed(chapter_id: String, sub_level_id: String)
 signal boss_encountered(boss_id: String)
 signal boss_defeated(boss_id: String)
+signal enemy_killed(enemy_id: String)
 
 # 双层世界
 signal world_switched(layer: int)  # 0=reality, 1=dreamlands

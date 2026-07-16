@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cultist"
+display_name = "邪教徒"
+category = 0
+serves_deity = "克苏鲁"
+description = "克苏鲁崇拜的凡人信徒"
+habitat = "全区域"
+combat_role = 0
+base_hp = 50
+base_damage = 10
+base_speed = 90.0
+abilities = Array[String]([])
+special_mechanics = Array[String]([])
+san_loss_on_sight_first = "1d3"
+san_loss_on_sight_repeat = "0/1"
+is_servant_race = false
+weakness = ""
+drop_table = {"green": Array[String](["cultist_charm", "yellow_mark_small"]), "blue": Array[String]([])}

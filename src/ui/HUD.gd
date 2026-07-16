@@ -10,6 +10,7 @@ extends Control
 @onready var _world_layer_label: Label = $TopRight/InfoPanel/InfoContainer/WorldLayerLabel
 @onready var _active_slots_container: HBoxContainer = $BottomCenter/ActiveSlots
 @onready var _notification_label: Label = $Center/Notification
+@onready var _hp_container: HBoxContainer = $TopLeft/SANPanel/SANContainer/HPContainer
 
 
 func _ready() -> void:
@@ -22,6 +23,8 @@ func _ready() -> void:
 	EventBus.active_item_used.connect(_on_active_item_used)
 	_update_san_display(SANManager.current_san, SANManager.san_max)
 	_update_stage_display(SANManager.get_stage())
+	# 等待玩家出现后连接HP信号
+	call_deferred("_connect_player_hp")
 
 
 func _apply_theme() -> void:
@@ -115,3 +118,31 @@ func _update_stage_display(stage: SANManager.SanStage) -> void:
 	]
 	_san_stage_label.text = stage_names[stage]
 	_san_stage_label.add_theme_color_override("font_color", stage_colors[stage])
+
+
+## 连接玩家HP信号并初始化HP显示
+func _connect_player_hp() -> void:
+	var players = get_tree().get_nodes_in_group("player_group")
+	if players.is_empty():
+		# 玩家可能还未加载，延迟重试
+		get_tree().create_timer(0.5).timeout.connect(_connect_player_hp)
+		return
+	var player = players[0]
+	if player.has_signal("hp_changed"):
+		player.hp_changed.connect(_on_hp_changed)
+		_on_hp_changed(player.get_hp(), player.get_max_hp())
+
+
+func _on_hp_changed(current: int, max_hp: int) -> void:
+	# 清空旧的心形
+	for child in _hp_container.get_children():
+		child.queue_free()
+	# 生成心形图标（用ColorRect占位）
+	for i in range(max_hp):
+		var heart = ColorRect.new()
+		heart.custom_minimum_size = Vector2(12, 12)
+		if i < current:
+			heart.color = GameConstants.THEME_ACCENT_CORAL
+		else:
+			heart.color = Color(0.2, 0.15, 0.18, 0.6)
+		_hp_container.add_child(heart)
