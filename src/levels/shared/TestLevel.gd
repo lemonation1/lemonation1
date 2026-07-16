@@ -83,12 +83,11 @@ func _on_enemy_killed(enemy_id: String) -> void:
 	# 过滤掉已死亡的 (state == 4 = DEAD)
 	var alive = enemies.filter(func(e): return e.get("state") != 4)
 	if alive.is_empty():
-		EventBus.show_notification.emit("区域清空! 前往下一区域...", 0)
+		EventBus.show_notification.emit("区域清空! 变异涌动...", 0)
 		# 通关奖励道具
 		_spawn_item_pickup("holy_water_small", Vector2(640, 400))
 		LevelManager.complete_level("C1", "C1-1")
-		# 延迟后加载下一关
+		# 延迟后请求变异选择 (由Main接管: 弹出界面 -> 选择完成 -> 加载下一关)
 		get_tree().create_timer(2.0).timeout.connect(func():
-			if not LevelManager.load_next_sub_level():
-				EventBus.show_notification.emit("章节完成!", 0)
+			EventBus.request_mutation_select.emit()
 		)

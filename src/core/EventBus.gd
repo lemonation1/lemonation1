@@ -31,6 +31,8 @@ signal level_completed(chapter_id: String, sub_level_id: String)
 signal boss_encountered(boss_id: String)
 signal boss_defeated(boss_id: String)
 signal enemy_killed(enemy_id: String)
+signal request_mutation_select()  # 通关后请求变异选择
+signal mutation_select_finished(mutation_id: String)  # 变异选择完成 (空串=放弃)
 
 # 双层世界
 signal world_switched(layer: int)  # 0=reality, 1=dreamlands

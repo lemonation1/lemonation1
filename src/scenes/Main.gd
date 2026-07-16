@@ -1,15 +1,19 @@
 extends Node2D
 ## 主场景 - 游戏入口，管理场景切换
 
+const MutationSelectScene = preload("res://src/ui/MutationSelectScreen.tscn")
+
 @onready var _scene_container: Node = $SceneContainer
 @onready var _ui_layer: CanvasLayer = $UILayer
 @onready var _hud: Control = $UILayer/HUD
 
 var _current_scene: Node = null
+var _mutation_screen: Control = null
 
 func _ready() -> void:
     EventBus.world_switched.connect(_on_world_switched)
     EventBus.player_died.connect(_on_player_died)
+    EventBus.request_mutation_select.connect(_on_request_mutation_select)
     _show_main_menu()
 
 func _show_main_menu() -> void:
@@ -44,6 +48,29 @@ func _on_player_died(cause: String) -> void:
     var game_over = preload("res://src/ui/GameOverScreen.tscn").instantiate()
     _scene_container.add_child(game_over)
     _hud.visible = false
+
+## 通关后弹出变异选择界面
+func _on_request_mutation_select() -> void:
+    if _mutation_screen != null:
+        return
+    get_tree().paused = true
+    _mutation_screen = MutationSelectScene.instantiate()
+    _ui_layer.add_child(_mutation_screen)
+    _mutation_screen.show_selection()
+    _mutation_screen.mutation_selected.connect(_on_mutation_selected)
+
+
+## 变异选择完成 -> 恢复游戏并加载下一关
+func _on_mutation_selected(mutation_id: String) -> void:
+    EventBus.mutation_select_finished.emit(mutation_id)
+    _mutation_screen = null
+    # 立即恢复暂停, 让关闭动画和后续timer正常运行
+    get_tree().paused = false
+    # 等待关闭动画结束后加载下一关 (动画约0.18s)
+    get_tree().create_timer(0.25).timeout.connect(func():
+        if not LevelManager.load_next_sub_level():
+            EventBus.show_notification.emit("章节完成!", 0)
+    )
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("escape") and GameManager.get_current_state() == GameManager.GameState.PLAYING:
