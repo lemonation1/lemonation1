@@ -249,6 +249,10 @@ func _die() -> void:
 	_spawn_drops()
 	# 击杀通知
 	EventBus.enemy_killed.emit(_enemy_id)
+	# 击杀回血变异 (blood_thirst) - 通知玩家
+	var player = _get_player()
+	if player != null and player.has_method("on_kill"):
+		player.on_kill()
 
 
 # ====================

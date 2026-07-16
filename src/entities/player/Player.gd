@@ -61,6 +61,10 @@ func _ready() -> void:
 	_attack_area.body_entered.connect(_on_attack_body_entered)
 	if BodyPartManager.has_ability("double_jump"):
 		_can_double_jump = true
+	# 监听部件装备变化 - 重算StatsModifier (含二段跳能力)
+	EventBus.body_part_equipped.connect(_on_part_changed)
+	EventBus.body_part_unequipped.connect(_on_part_changed)
+	_refresh_abilities()
 	hp_changed.emit(_hp, _max_hp)
 
 
@@ -163,7 +167,8 @@ func _handle_movement(delta: float) -> void:
 			if absf(velocity.x) < 20.0:
 				_squash(GameConstants.PLAYER_SQUASH_TURN, 0.06)
 		else:
-			velocity.x = move_toward(velocity.x, input_x * GameConstants.PLAYER_MOVE_SPEED, accel * delta)
+			var target_speed = input_x * GameConstants.PLAYER_MOVE_SPEED * StatsModifier.move_speed_mult
+			velocity.x = move_toward(velocity.x, target_speed, accel * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, friction * delta)
 
@@ -226,7 +231,7 @@ func _start_dash() -> void:
 	_is_dashing = true
 	_is_invincible = true
 	_dash_timer = GameConstants.PLAYER_DASH_DURATION
-	_dash_cooldown = GameConstants.PLAYER_DASH_COOLDOWN
+	_dash_cooldown = GameConstants.PLAYER_DASH_COOLDOWN * StatsModifier.dash_cd_mult
 	_ghost_timer = 0.0
 
 	# 方向：优先输入方向，否则朝 facing
@@ -352,9 +357,21 @@ func _on_attack_body_entered(body: Node2D) -> void:
 	# 对敌人造成伤害 + 击退
 	var hit_dir = Vector2(_facing, -0.3).normalized()
 	if body.has_method("take_damage"):
-		# 连击段越高伤害越高
-		var dmg = 10 + _combo_count * 5
+		# 基础伤害: 连击段越高伤害越高
+		var base_dmg = 10 + _combo_count * 5
+		var dmg = base_dmg
+		# StatsModifier: 攻击伤害乘数
+		dmg = int(float(dmg) * StatsModifier.attack_damage_mult)
+		# 狂化: 低血量时额外伤害
+		if StatsModifier.low_hp_threshold_ratio > 0.0 and float(_hp) / float(_max_hp) <= StatsModifier.low_hp_threshold_ratio:
+			dmg = int(float(dmg) * StatsModifier.low_hp_damage_mult)
+		# 驱邪: 对神祇系敌人额外伤害
+		if body.get("is_deity") == true:
+			dmg = int(float(dmg) * StatsModifier.damage_mult_vs_god)
 		body.take_damage(dmg, hit_dir)
+		# 吸血光环: 攻击回血
+		if StatsModifier.lifesteal_ratio > 0.0:
+			heal(int(float(dmg) * StatsModifier.lifesteal_ratio))
 	elif body.has_method("apply_knockback"):
 		body.apply_knockback(hit_dir, GameConstants.PLAYER_ATTACK_KNOCKBACK)
 	# 命中减速 - 增强打击感
@@ -462,7 +479,18 @@ func apply_knockback(direction: Vector2, force: float) -> void:
 func take_damage(amount: int, from_direction: Vector2) -> void:
 	if _is_invincible or _is_dashing:
 		return
-	_hp = max(0, _hp - amount)
+	# StatsModifier: 减伤乘数 (钢铁之躯/部件防御)
+	var actual_amount = int(float(amount) * StatsModifier.damage_reduction_mult)
+	actual_amount = max(1, actual_amount)  # 至少1点伤害
+	# 免死判定 (神圣守护): 致命伤害时恢复至1HP
+	if _hp - actual_amount <= 0 and StatsModifier.consume_death_save():
+		_hp = 1
+		hp_changed.emit(_hp, _max_hp)
+		EventBus.show_notification.emit("神圣守护降临! 免于一死", 0)
+		_is_invincible = true
+		_hurt_invincible_timer = GameConstants.PLAYER_HURT_INVINCIBLE_TIME
+		return
+	_hp = max(0, _hp - actual_amount)
 	hp_changed.emit(_hp, _max_hp)
 	# 受击击退
 	velocity = from_direction * GameConstants.PLAYER_HURT_KNOCKBACK
@@ -473,6 +501,24 @@ func take_damage(amount: int, from_direction: Vector2) -> void:
 	_squash(Vector2(1.3, 0.7), 0.1)
 	if _hp <= 0:
 		EventBus.player_died.emit("hp_zero")
+
+
+## 击杀敌人时调用 - 触发击杀回血变异
+func on_kill() -> void:
+	if StatsModifier.on_kill_heal > 0:
+		heal(StatsModifier.on_kill_heal)
+
+
+## 部件装备变化时刷新能力和修正
+func _on_part_changed(_arg1, _arg2 = null) -> void:
+	_refresh_abilities()
+
+
+func _refresh_abilities() -> void:
+	# 重算StatsModifier (部件属性加成)
+	StatsModifier.rebuild()
+	# 二段跳能力
+	_can_double_jump = BodyPartManager.has_ability("double_jump")
 
 
 func get_facing() -> int:

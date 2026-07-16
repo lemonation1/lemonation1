@@ -30,10 +30,12 @@ func _process(delta: float) -> void:
 
 func apply_temporary_loss(amount: float, source: String) -> void:
     # 临时损失，可恢复
-    current_san = max(0.0, current_san - amount)
+    # StatsModifier: SAN抗性 (钢铁意志)
+    var actual_amount = maxf(0.0, amount - StatsModifier.san_resistance_bonus)
+    current_san = max(0.0, current_san - actual_amount)
     _update_stage()
-    EventBus.san_temporary_loss.emit(amount, source)
-    _check_madness_trigger(amount, source)
+    EventBus.san_temporary_loss.emit(actual_amount, source)
+    _check_madness_trigger(actual_amount, source)
 
 func apply_permanent_cap_loss(amount: float, source: String) -> void:
     # 永久上限损失，不可恢复
@@ -81,10 +83,12 @@ func mark_tindalos() -> void:
     tindalos_marked = true
 
 func _handle_natural_regen(delta: float) -> void:
+    # StatsModifier: SAN恢复乘数 (宁静之心/冥想)
+    var regen_mult = StatsModifier.san_regen_mult
     if _in_safe_zone:
-        current_san = min(san_max, current_san + SAFE_ZONE_REGEN * delta)
+        current_san = min(san_max, current_san + SAFE_ZONE_REGEN * regen_mult * delta)
     elif current_stage != SanStage.ZERO:
-        current_san = min(san_max, current_san + BASE_SAN_REGEN * delta)
+        current_san = min(san_max, current_san + BASE_SAN_REGEN * regen_mult * delta)
     _update_stage_if_needed()
 
 func _handle_pollution_drain(delta: float) -> void:
