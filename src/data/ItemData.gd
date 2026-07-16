@@ -34,3 +34,37 @@ enum SourcePool { ARKHAM, INNSMOUTH, DUNWICH, NKAI, MADNESS_MOUNTAINS, DREAMLAND
 @export var lore_short: String  # 短评 (拾取/悬停显示, 一句话)
 @export var san_cost_on_use: int = 0  # 主动使用消耗SAN
 @export var permanent_san_cap_cost: int = 0  # 永久上限代价
+@export var grid_size: Vector2i = Vector2i.ZERO  # 背包网格尺寸 (0,0=自动按类型/稀有度推算)
+@export var needs_decoding: bool = false  # 禁忌典籍需解读后才显示真实效果 (克苏鲁主题)
+@export var san_pollution_per_min: float = 0.0  # 持有SAN污染/分钟 (禁书类)
+
+
+## 获取网格尺寸 (优先用显式设置, 否则按类型+稀有度推算)
+func get_grid_size() -> Vector2i:
+	if grid_size != Vector2i.ZERO:
+		return grid_size
+	# 默认推算规则: 材料/消耗品/钥匙 1x1, 被动 1x1~2x2, 主动 1x2, 禁书 2x2~2x3
+	match item_type:
+		ItemType.MATERIAL, ItemType.KEY:
+			return Vector2i(1, 1)
+		ItemType.CONSUMABLE:
+			return Vector2i(1, 1)
+		ItemType.ACTIVE:
+			return Vector2i(1, 2)
+		ItemType.PASSIVE:
+			# 禁书类按稀有度变大
+			if category == ItemCategory.FORBIDDEN_TOME:
+				match rarity:
+					Rarity.GREEN, Rarity.BLUE: return Vector2i(2, 2)
+					Rarity.PURPLE: return Vector2i(2, 2)
+					Rarity.ORANGE: return Vector2i(2, 3)
+					Rarity.RED: return Vector2i(3, 2)
+			# 武器工具类
+			if category == ItemCategory.WEAPON_TOOL:
+				return Vector2i(2, 2)
+			# 护身符/旧印类
+			if category in [ItemCategory.AMULET_JEWELRY, ItemCategory.ELDER_SIGN_STONE, ItemCategory.DIVINE_COUNTER]:
+				return Vector2i(1, 1)
+			# 其他被动
+			return Vector2i(1, 2)
+	return Vector2i(1, 1)

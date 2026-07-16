@@ -130,7 +130,19 @@
 ## Phase 3: UI完善
 
 ### 3.1 背包界面
-- [ ] InventoryScreen.tscn/gd - 显示所有道具/材料/钥匙
+- [x] InventoryScreen.tscn/gd - 网格拼图背包 (2026-07-16)
+  - 参考 Resident Evil 4 公文包网格 + Tunic 禁忌手册解读 + Neo Scavenger 物品尺寸
+  - 8×6网格, 道具按尺寸占用(禁书2x2~3x2, 主动1x2, 材料1x1), 可拖拽移动/右键旋转
+  - 禁忌典籍解读机制: 拾取时显示"???"暗色方块, 双击/解读按钮消耗SAN(稀有度×10)揭示真实效果
+  - SAN代价可视化: 使用SAN/永久上限/持有污染分别显示, 按强度变色
+  - 短评(lore_short) + 详细介绍(lore_text)分区显示, 未解读时显示"文字在蠕动..."
+  - Tab键开关, Del丢弃, R键旋转
+- [x] ItemData扩展: grid_size/needs_decoding/san_pollution_per_min 字段 (2026-07-16)
+  - get_grid_size() 自动按类型+稀有度推算尺寸, 禁书随稀有度变大
+- [x] InventoryManager扩展: 网格占用/位置/旋转管理 + 解读状态 + SAN污染计算 (2026-07-16)
+  - can_place_item/place_item/auto_place_item 网格拼图逻辑
+  - decode_item 解读消耗SAN揭示效果 (Tunic式)
+  - get_total_san_pollution_per_min 整合道具+部件SAN污染
 - [ ] 主动道具快捷栏拖拽装备
 - [x] 道具详情弹窗 (效果/代价/短评/详细介绍) (2026-07-16)
   - ItemDetailPopup.tscn/gd - 点击/按L键弹出, 含短评(lore_short)和详细介绍(lore_text)

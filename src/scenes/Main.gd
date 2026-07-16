@@ -3,6 +3,7 @@ extends Node2D
 
 const MutationSelectScene = preload("res://src/ui/MutationSelectScreen.tscn")
 const BodyPartEquipScene = preload("res://src/ui/BodyPartEquipScreen.tscn")
+const InventoryScene = preload("res://src/ui/InventoryScreen.tscn")
 
 @onready var _scene_container: Node = $SceneContainer
 @onready var _ui_layer: CanvasLayer = $UILayer
@@ -11,6 +12,7 @@ const BodyPartEquipScene = preload("res://src/ui/BodyPartEquipScreen.tscn")
 var _current_scene: Node = null
 var _mutation_screen: Control = null
 var _equip_screen: Control = null
+var _inventory_screen: Control = null
 
 func _ready() -> void:
     EventBus.world_switched.connect(_on_world_switched)
@@ -90,6 +92,22 @@ func _on_equip_closed() -> void:
     _equip_screen = null
     get_tree().paused = false
 
+## 打开背包界面 (Tab键)
+func _open_inventory_screen() -> void:
+    if _inventory_screen != null or _equip_screen != null or _mutation_screen != null:
+        return
+    if GameManager.get_current_state() != GameManager.GameState.PLAYING:
+        return
+    get_tree().paused = true
+    _inventory_screen = InventoryScene.instantiate()
+    _ui_layer.add_child(_inventory_screen)
+    _inventory_screen.open()
+    _inventory_screen.closed.connect(_on_inventory_closed)
+
+func _on_inventory_closed() -> void:
+    _inventory_screen = null
+    get_tree().paused = false
+
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("escape") and GameManager.get_current_state() == GameManager.GameState.PLAYING:
         GameManager.change_state(GameManager.GameState.PAUSED)
@@ -99,4 +117,9 @@ func _unhandled_input(event: InputEvent) -> void:
     if event is InputEventKey and event.pressed and event.keycode == KEY_B:
         if GameManager.get_current_state() == GameManager.GameState.PLAYING:
             _open_equip_screen()
+            get_viewport().set_input_as_handled()
+    # Tab键打开背包界面
+    if event is InputEventKey and event.pressed and event.keycode == KEY_TAB:
+        if GameManager.get_current_state() == GameManager.GameState.PLAYING:
+            _open_inventory_screen()
             get_viewport().set_input_as_handled()

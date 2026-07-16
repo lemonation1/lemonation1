@@ -97,6 +97,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if _last_picked_item != null and not _item_detail_popup.visible:
 			_item_detail_popup.show_item(_last_picked_item)
 			get_viewport().set_input_as_handled()
+	# Tab键打开背包 (交给Main处理, 这里不拦截)
+	# B键打开部件装备 (同上)
 
 
 func _on_world_switched(layer: int) -> void:

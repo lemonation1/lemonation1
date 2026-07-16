@@ -26,3 +26,6 @@ lore_text = "据传由疯诗人阿尔哈萨德于大马士革暗夜中写就，�
 lore_short = "散落的残页上，文字在蠕动。"
 san_cost_on_use = 0
 permanent_san_cap_cost = 0
+grid_size = Vector2i(2, 2)
+needs_decoding = true
+san_pollution_per_min = 0.3
