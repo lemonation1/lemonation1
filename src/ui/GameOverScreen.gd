@@ -1,5 +1,5 @@
 extends Control
-## Q版结算界面 - 柔和落幕氛围（避免恐怖感）
+## 结算界面 - 沉郁落幕氛围（压抑但不令人不适）
 
 @onready var _overlay: ColorRect = $Overlay
 @onready var _overlay_layer: ColorRect = $OverlayLayer
@@ -11,7 +11,7 @@ extends Control
 @onready var _hint: Label = $Center/VBox/Hint
 
 func _ready() -> void:
-	# 柔和落幕色调（珊瑚色而非血红）
+	# 沉郁落幕色调（暗珊瑚而非血红）
 	_overlay.color = Color(0.08, 0.06, 0.10, 0.78)
 	_overlay_layer.color = Color(
 		GameConstants.THEME_ACCENT_CORAL.r,
@@ -20,7 +20,7 @@ func _ready() -> void:
 		0.12
 	)
 
-	# 标题：珊瑚色柔和落幕
+	# 标题：暗珊瑚色沉郁落幕
 	_title.text = "潮汐褪去"
 	UITheme.style_label(_title, GameConstants.THEME_ACCENT_CORAL, true)
 	_title.add_theme_font_size_override("font_size", 40)

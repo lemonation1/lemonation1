@@ -65,39 +65,39 @@ const SHAKE_ATTACK_HIT: float = 0.22
 const SHAKE_DASH: float = 0.18
 const SHAKE_HURT: float = 0.45
 
-# === Q版柔和色彩主题 ===
-# 背景
-const THEME_BG_DEEP: Color = Color(0.10, 0.11, 0.20, 1.0)
-const THEME_BG_MID: Color = Color(0.14, 0.16, 0.28, 1.0)
-const THEME_BG_LIGHT: Color = Color(0.19, 0.22, 0.36, 1.0)
+# === 阴郁唯美色彩主题 (参考丝之歌: 暗沉但不刺眼, 压抑感内化) ===
+# 背景 — 更深沉的去饱和暗色, 像被雾气笼罩的废墟
+const THEME_BG_DEEP: Color = Color(0.06, 0.07, 0.11, 1.0)
+const THEME_BG_MID: Color = Color(0.09, 0.10, 0.16, 1.0)
+const THEME_BG_LIGHT: Color = Color(0.13, 0.15, 0.22, 1.0)
 
-# 面板
-const THEME_PANEL_BG: Color = Color(0.15, 0.17, 0.28, 0.92)
-const THEME_PANEL_BORDER: Color = Color(0.36, 0.42, 0.62, 1.0)
-const THEME_PANEL_HOVER: Color = Color(0.22, 0.26, 0.42, 0.95)
+# 面板 — 低调暗色, 不抢画面注意力
+const THEME_PANEL_BG: Color = Color(0.08, 0.09, 0.14, 0.94)
+const THEME_PANEL_BORDER: Color = Color(0.24, 0.27, 0.38, 1.0)
+const THEME_PANEL_HOVER: Color = Color(0.14, 0.16, 0.24, 0.96)
 
-# 强调色
-const THEME_ACCENT_GOLD: Color = Color(0.95, 0.78, 0.36, 1.0)
-const THEME_ACCENT_CYAN: Color = Color(0.40, 0.80, 0.88, 1.0)
-const THEME_ACCENT_CORAL: Color = Color(0.92, 0.50, 0.55, 1.0)
-const THEME_ACCENT_PURPLE: Color = Color(0.58, 0.48, 0.82, 1.0)
-const THEME_ACCENT_GREEN: Color = Color(0.45, 0.80, 0.58, 1.0)
+# 强调色 — 去饱和, 像褪色的旧物而非鲜艳的霓虹
+const THEME_ACCENT_GOLD: Color = Color(0.72, 0.60, 0.32, 1.0)      # 暗金, 像旧烛光
+const THEME_ACCENT_CYAN: Color = Color(0.30, 0.55, 0.62, 1.0)      # 青灰, 像深海冷光
+const THEME_ACCENT_CORAL: Color = Color(0.68, 0.38, 0.40, 1.0)     # 暗珊瑚, 像干涸的血
+const THEME_ACCENT_PURPLE: Color = Color(0.42, 0.34, 0.55, 1.0)    # 灰紫, 像暮色
+const THEME_ACCENT_GREEN: Color = Color(0.32, 0.50, 0.38, 1.0)     # 暗苔绿, 像腐殖土上的苔藓
 
-# 文字
-const THEME_TEXT_LIGHT: Color = Color(0.93, 0.93, 0.96, 1.0)
-const THEME_TEXT_DIM: Color = Color(0.62, 0.65, 0.76, 1.0)
-const THEME_TEXT_ACCENT: Color = Color(0.95, 0.78, 0.36, 1.0)
+# 文字 — 柔和的灰白, 不刺眼
+const THEME_TEXT_LIGHT: Color = Color(0.82, 0.82, 0.85, 1.0)
+const THEME_TEXT_DIM: Color = Color(0.50, 0.52, 0.58, 1.0)
+const THEME_TEXT_ACCENT: Color = Color(0.72, 0.60, 0.32, 1.0)
 
-# SAN 状态色（柔和版）
-const THEME_SAN_HEALTHY: Color = Color(0.50, 0.82, 0.62, 1.0)
-const THEME_SAN_OKAY: Color = Color(0.88, 0.82, 0.42, 1.0)
-const THEME_SAN_WARN: Color = Color(0.90, 0.62, 0.38, 1.0)
-const THEME_SAN_DANGER: Color = Color(0.88, 0.42, 0.46, 1.0)
-const THEME_SAN_CRITICAL: Color = Color(0.78, 0.32, 0.38, 1.0)
+# SAN 状态色 — 去饱和渐变, 从冷绿到暗红, 不用鲜艳色
+const THEME_SAN_HEALTHY: Color = Color(0.35, 0.55, 0.42, 1.0)      # 苔绿
+const THEME_SAN_OKAY: Color = Color(0.62, 0.56, 0.34, 1.0)         # 暗黄
+const THEME_SAN_WARN: Color = Color(0.65, 0.44, 0.30, 1.0)         # 锈橙
+const THEME_SAN_DANGER: Color = Color(0.60, 0.30, 0.34, 1.0)       # 暗红
+const THEME_SAN_CRITICAL: Color = Color(0.45, 0.20, 0.26, 1.0)     # 深暗红
 
-# 玩家占位色
-const THEME_PLAYER_BODY: Color = Color(0.40, 0.75, 0.85, 1.0)
-const THEME_PLAYER_OUTLINE: Color = Color(0.20, 0.40, 0.55, 1.0)
+# 玩家占位色 — 冷青灰, 像雾中的孤独旅人
+const THEME_PLAYER_BODY: Color = Color(0.28, 0.45, 0.52, 1.0)
+const THEME_PLAYER_OUTLINE: Color = Color(0.12, 0.22, 0.28, 1.0)
 
 # === SAN 系统 ===
 const SAN_BASE_MAX: float = 100.0
@@ -175,11 +175,11 @@ const ENEMY_SAN_DAMAGE_RANGE: float = 180.0  # 目击SAN损失生效距离
 const ENEMY_DROP_PICKUP_RADIUS: float = 60.0  # 掉落物散布半径
 const ENEMY_DROP_CHANCE: float = 0.35  # 基础掉落概率
 
-# 敌人配色 (Q版柔和)
-const THEME_ENEMY_CULTIST: Color = Color(0.65, 0.45, 0.55, 1.0)  # 邪教徒 - 暗红紫
-const THEME_ENEMY_DEEPONE: Color = Color(0.40, 0.55, 0.50, 1.0)  # 深潜者 - 灰绿
-const THEME_ENEMY_OUTLINE: Color = Color(0.15, 0.15, 0.22, 1.0)  # 敌人描边
-const THEME_ENEMY_HURT: Color = Color(1.0, 0.9, 0.9, 1.0)  # 受击闪白
+# 敌人配色 (阴郁去饱和, 压抑感内化)
+const THEME_ENEMY_CULTIST: Color = Color(0.40, 0.28, 0.32, 1.0)  # 邪教徒 - 暗红褐, 像干血
+const THEME_ENEMY_DEEPONE: Color = Color(0.22, 0.32, 0.28, 1.0)  # 深潜者 - 灰绿, 像腐烂的海藻
+const THEME_ENEMY_OUTLINE: Color = Color(0.08, 0.08, 0.12, 1.0)  # 敌人描边 - 近黑
+const THEME_ENEMY_HURT: Color = Color(0.85, 0.80, 0.75, 1.0)    # 受击闪白 - 低调灰白
 
 # === 玩家生命系统 ===
 const PLAYER_MAX_HP: int = 5

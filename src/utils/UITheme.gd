@@ -1,6 +1,6 @@
 class_name UITheme
 extends RefCounted
-## Q版UI主题工具 - 统一应用柔和圆角风格
+## UI主题工具 - 统一应用阴郁低调风格
 
 static func make_panel_style(bg: Color = GameConstants.THEME_PANEL_BG, border: Color = GameConstants.THEME_PANEL_BORDER, radius: int = 8) -> StyleBoxFlat:
 	var s := StyleBoxFlat.new()

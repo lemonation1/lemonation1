@@ -1,6 +1,6 @@
 extends CharacterBody2D
 ## 基础敌人 - 巡逻/追击/攻击 三状态AI + 受击/死亡
-## Q版ColorRect拼贴视觉，与Player风格统一
+## ColorRect拼贴占位视觉，与Player风格统一
 
 signal died(enemy: Node)
 

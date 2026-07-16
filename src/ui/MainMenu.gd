@@ -1,5 +1,5 @@
 extends Control
-## Q版主菜单 - 柔和圆润风格，参考死亡细胞/丝之歌的菜单观感
+## 主菜单 - 阴郁沉静风格，参考丝之歌的菜单观感
 
 @onready var _bg: ColorRect = $Background
 @onready var _bg_layer: ColorRect = $BackgroundLayer
@@ -12,7 +12,7 @@ extends Control
 @onready var _menu_panel: Panel = $Center/VBox/MenuPanel
 
 func _ready() -> void:
-	# 背景渐变：深色叠加深紫调，营造柔和氛围
+	# 背景渐变：深沉暗色叠加灰紫调，营造沉郁氛围
 	_bg.color = GameConstants.THEME_BG_DEEP
 	_bg_layer.color = Color(
 		GameConstants.THEME_ACCENT_PURPLE.r,
@@ -26,7 +26,7 @@ func _ready() -> void:
 	UITheme.style_label(_title, GameConstants.THEME_ACCENT_GOLD, true)
 	_title.add_theme_font_size_override("font_size", 44)
 
-	# 副标题：柔和青色
+	# 副标题：暗青色
 	_subtitle.text = "Roguelike × 银河恶魔城"
 	UITheme.style_label(_subtitle, GameConstants.THEME_ACCENT_CYAN, false)
 	_subtitle.add_theme_font_size_override("font_size", 14)

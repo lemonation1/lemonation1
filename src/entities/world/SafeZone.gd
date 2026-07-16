@@ -10,7 +10,7 @@ func _ready() -> void:
 	add_to_group(GameConstants.GROUP_SAFE_ZONE)
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	# 柔和光晕
+	# 低调暖光
 	_glow.color = Color(
 		GameConstants.THEME_ACCENT_GOLD.r,
 		GameConstants.THEME_ACCENT_GOLD.g,

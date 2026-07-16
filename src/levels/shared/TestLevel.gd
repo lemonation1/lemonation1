@@ -12,7 +12,7 @@ const ItemPickupScene = preload("res://src/entities/items/ItemPickup.tscn")
 
 
 func _ready() -> void:
-	# Q版柔和背景：深蓝调 + 紫色雾感
+	# 阴郁背景：深沉去饱和暗色 + 灰紫雾感
 	_background.color = GameConstants.THEME_BG_DEEP
 	_background_layer.color = Color(
 		GameConstants.THEME_ACCENT_PURPLE.r,

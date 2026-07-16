@@ -1,5 +1,5 @@
 extends Control
-## Q版暂停菜单 - 柔和半透明遮罩 + 圆角面板
+## 暂停菜单 - 沉静半透明遮罩 + 低调面板
 
 @onready var _overlay: ColorRect = $Overlay
 @onready var _panel: Panel = $Center/VBox/MenuPanel
@@ -10,7 +10,7 @@ extends Control
 @onready var _main_menu_button: Button = $Center/VBox/MenuPanel/VBox/MainMenuButton
 
 func _ready() -> void:
-	# 柔和半透明遮罩（深蓝调而非纯黑）
+	# 沉静半透明遮罩（暗色而非纯黑）
 	_overlay.color = Color(0.04, 0.05, 0.10, 0.65)
 
 	# 标题

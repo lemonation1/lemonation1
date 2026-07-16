@@ -14,7 +14,7 @@
 - [x] 数据资源类定义 (ItemData/BodyPartData/EnemyData/BossData/LevelData/MutationData/MadnessData/ItemPoolData/FactionData/SetBonusData)
 - [x] 数据注册器 (DataRegistry.gd)
 - [x] 玩家控制器 (移动/跳跃/冲刺/攻击/连击/Squash&Stretch/命中停顿/残影)
-- [x] 玩家场景 (Player.tscn - ColorRect拼贴Q版角色)
+- [x] 玩家场景 (Player.tscn - ColorRect拼贴角色占位)
 - [x] 相机控制器 (平滑跟随/前瞻/创伤式震动)
 - [x] UI框架 (HUD/MainMenu/PauseMenu/GameOverScreen)
 - [x] 测试关卡 (TestLevel.tscn - 平台跳跃验证)
@@ -30,7 +30,7 @@
 
 ### 1.1 敌人系统
 - [x] 创建 BaseEnemy.gd (CharacterBody2D) - 生命值/受击/死亡/击退 (2026-07-16)
-- [x] 创建 Enemy.tscn - Q版敌人视觉 (ColorRect拼贴) (2026-07-16)
+- [x] 创建 Enemy.tscn - 敌人视觉占位 (ColorRect拼贴) (2026-07-16)
 - [x] 实现简单AI (巡逻 -> 发现玩家 -> 追击 -> 攻击) (2026-07-16)
 - [x] 敌人受击反馈 (闪白/击退/命中停顿) (2026-07-16)
 - [x] 敌人死亡掉落机制 (概率掉落道具/材料) (2026-07-16)
@@ -60,7 +60,7 @@
 ### 1.4 安全区系统
 - [x] 创建 SafeZone.gd/tscn (Area2D) - 玩家进入时SANManager.set_safe_zone(true) (2026-07-16)
 - [x] 在关卡中放置安全区 (篝火/存档点) (2026-07-16)
-- [x] 安全区视觉反馈 (柔和光晕) (2026-07-16)
+- [x] 安全区视觉反馈 (低调暖光) (2026-07-16)
 
 ### 1.5 玩家生命系统
 - [x] 玩家生命值 (HP) - 受伤/死亡逻辑 (2026-07-16)
@@ -186,7 +186,7 @@
 2. **数据文件**: 使用 .tres 格式, 放在 src/data/对应子目录/
 3. **场景命名**: snake_case.tscn, 脚本 snake_case.gd
 4. **信号**: 通过EventBus通信, 不直接跨场景引用
-5. **视觉**: Q版柔和风格, ColorRect拼贴占位 (后期替换像素美术)
+5. **视觉**: 阴郁唯美风格, 参考丝之歌——暗色调手绘感, 压抑感藏在环境氛围中而非外化为恶心画面; ColorRect拼贴为占位, 后期替换正式美术; UI干净功能性, 不刻意恐怖化
 6. **手感**: 参考丝之歌, 保持输入缓冲/土狼时间/命中停顿/Squash&Stretch
 7. **设计参考**: 遇到关卡/道具/敌人设计问题, 查阅五份设计文档
 8. **常量**: 所有数值放GameConstants.gd, 不硬编码

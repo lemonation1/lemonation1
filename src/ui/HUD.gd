@@ -1,5 +1,5 @@
 extends Control
-## Q版柔和风格HUD
+## 阴郁风格HUD
 
 @onready var _san_panel: Panel = $TopLeft/SANPanel
 @onready var _san_bar: ProgressBar = $TopLeft/SANPanel/SANContainer/SANBar
