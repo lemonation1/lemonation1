@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://main_scene_001"]
 
 [ext_resource type="Script" path="res://src/scenes/Main.gd" id="1"]
-[ext_resource type="Script" path="res://src/ui/HUD.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://hud_scene_001" path="res://src/ui/HUD.tscn" id="2"]
 [ext_resource type="Script" path="res://src/data/DataRegistry.gd" id="3"]
 
 [node name="Main" type="Node2D"]
@@ -14,92 +14,4 @@ script = ExtResource("3")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="UILayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("2")
-
-[node name="TopLeft" type="VBoxContainer" parent="UILayer/HUD"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 250.0
-offset_bottom = 80.0
-
-[node name="SANBar" type="ProgressBar" parent="UILayer/HUD/TopLeft"]
-custom_minimum_size = Vector2(240, 24)
-max_value = 100.0
-value = 100.0
-show_percentage = false
-
-[node name="SANLabel" type="Label" parent="UILayer/HUD/TopLeft/SANBar"]
-offset_left = 8.0
-offset_top = 4.0
-offset_right = 232.0
-offset_bottom = 20.0
-text = "SAN: 100 / 100"
-horizontal_alignment = 1
-
-[node name="SANStageLabel" type="Label" parent="UILayer/HUD/TopLeft"]
-text = "清醒"
-
-[node name="TopRight" type="VBoxContainer" parent="UILayer/HUD"]
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -200.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 60.0
-grow_horizontal = 0
-alignment = 2
-
-[node name="FactionLabel" type="Label" parent="UILayer/HUD/TopRight"]
-text = "流派: 血脉 (Lv.0)"
-horizontal_alignment = 2
-
-[node name="WorldLayerLabel" type="Label" parent="UILayer/HUD/TopRight"]
-text = "现实层"
-horizontal_alignment = 2
-
-[node name="BottomCenter" type="CenterContainer" parent="UILayer/HUD"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = -70.0
-offset_right = 0.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="ActiveSlots" type="HBoxContainer" parent="UILayer/HUD/BottomCenter"]
-theme_override_constants/separation = 8
-
-[node name="Slot1" type="Panel" parent="UILayer/HUD/BottomCenter/ActiveSlots"]
-custom_minimum_size = Vector2(48, 48)
-
-[node name="Slot2" type="Panel" parent="UILayer/HUD/BottomCenter/ActiveSlots"]
-custom_minimum_size = Vector2(48, 48)
-
-[node name="Slot3" type="Panel" parent="UILayer/HUD/BottomCenter/ActiveSlots"]
-custom_minimum_size = Vector2(48, 48)
-
-[node name="Center" type="CenterContainer" parent="UILayer/HUD"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -100.0
-offset_right = 200.0
-offset_bottom = -60.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Notification" type="Label" parent="UILayer/HUD/Center"]
-horizontal_alignment = 1
-modulate = Color(1, 1, 1, 0)
+[node name="HUD" parent="UILayer" instance=ExtResource("2")]

@@ -12,43 +12,73 @@ mouse_filter = 2
 script = ExtResource("1")
 
 [node name="TopLeft" type="VBoxContainer" parent="."]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 250.0
-offset_bottom = 80.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 280.0
+offset_bottom = 90.0
+theme_override_constants/separation = 4
 
-[node name="SANBar" type="ProgressBar" parent="TopLeft"]
-custom_minimum_size = Vector2(240, 24)
+[node name="SANPanel" type="Panel" parent="TopLeft"]
+custom_minimum_size = Vector2(260, 0)
+
+[node name="SANContainer" type="VBoxContainer" parent="TopLeft/SANPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = -8.0
+theme_override_constants/separation = 2
+
+[node name="SANBar" type="ProgressBar" parent="TopLeft/SANPanel/SANContainer"]
+custom_minimum_size = Vector2(240, 22)
 max_value = 100.0
 value = 100.0
 show_percentage = false
 
-[node name="SANLabel" type="Label" parent="TopLeft/SANBar"]
+[node name="SANLabel" type="Label" parent="TopLeft/SANPanel/SANContainer/SANBar"]
 offset_left = 8.0
-offset_top = 4.0
+offset_top = 2.0
 offset_right = 232.0
 offset_bottom = 20.0
 text = "SAN: 100 / 100"
 horizontal_alignment = 1
 
 [node name="SANStageLabel" type="Label" parent="TopLeft"]
+offset_left = 4.0
 text = "清醒"
 
 [node name="TopRight" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 60.0
+offset_left = -180.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 80.0
 grow_horizontal = 0
 alignment = 2
+theme_override_constants/separation = 4
 
-[node name="FactionLabel" type="Label" parent="TopRight"]
+[node name="InfoPanel" type="Panel" parent="TopRight"]
+custom_minimum_size = Vector2(168, 0)
+
+[node name="InfoContainer" type="VBoxContainer" parent="TopRight/InfoPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = -8.0
+alignment = 2
+theme_override_constants/separation = 2
+
+[node name="FactionLabel" type="Label" parent="TopRight/InfoPanel/InfoContainer"]
 text = "流派: 血脉 (Lv.0)"
 horizontal_alignment = 2
 
-[node name="WorldLayerLabel" type="Label" parent="TopRight"]
+[node name="WorldLayerLabel" type="Label" parent="TopRight/InfoPanel/InfoContainer"]
 text = "现实层"
 horizontal_alignment = 2
 
@@ -67,13 +97,13 @@ grow_vertical = 0
 theme_override_constants/separation = 8
 
 [node name="Slot1" type="Panel" parent="BottomCenter/ActiveSlots"]
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(52, 52)
 
 [node name="Slot2" type="Panel" parent="BottomCenter/ActiveSlots"]
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(52, 52)
 
 [node name="Slot3" type="Panel" parent="BottomCenter/ActiveSlots"]
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(52, 52)
 
 [node name="Center" type="CenterContainer" parent="."]
 anchors_preset = 8
@@ -81,9 +111,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
+offset_left = -250.0
 offset_top = -100.0
-offset_right = 200.0
+offset_right = 250.0
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2

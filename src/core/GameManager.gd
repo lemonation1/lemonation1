@@ -3,9 +3,21 @@ extends Node
 enum GameState { MAIN_MENU, PLAYING, PAUSED, GAME_OVER, VICTORY, LOADING }
 
 var _current_state: GameState = GameState.MAIN_MENU
+var _hit_stop_timer: float = 0.0
 
 func _ready() -> void:
     EventBus.player_died.connect(_on_player_died)
+
+func _physics_process(delta: float) -> void:
+    if _hit_stop_timer > 0.0:
+        _hit_stop_timer -= delta
+
+## 触发全局命中停顿 - 冻结所有物理实体
+func trigger_hit_stop(duration: float) -> void:
+    _hit_stop_timer = duration
+
+func is_in_hit_stop() -> bool:
+    return _hit_stop_timer > 0.0
 
 func change_state(new_state: GameState) -> void:
     if new_state == _current_state:

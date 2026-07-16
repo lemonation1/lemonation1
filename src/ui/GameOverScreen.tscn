@@ -10,38 +10,81 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Overlay" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.05, 0.0, 0.0, 0.9)
+color = Color(0.08, 0.06, 0.1, 0.78)
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="OverlayLayer" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.92, 0.5, 0.55, 0.12)
+
+[node name="Center" type="CenterContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -80.0
-offset_right = 120.0
-offset_bottom = 80.0
+offset_left = -200.0
+offset_top = -240.0
+offset_right = 200.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+custom_minimum_size = Vector2(400, 480)
+theme_override_constants/separation = 12
 alignment = 1
-theme_override_constants/separation = 16
 
-[node name="Title" type="Label" parent="VBox"]
-text = "理智崩溃"
+[node name="Title" type="Label" parent="Center/VBox"]
+text = "潮汐褪去"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 40
 
-[node name="RetryButton" type="Button" parent="VBox"]
-text = "重新轮回"
-custom_minimum_size = Vector2(160, 36)
+[node name="Subtitle" type="Label" parent="Center/VBox"]
+text = "下一次浪潮，定能更远"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
 
-[node name="MainMenuButton" type="Button" parent="VBox"]
+[node name="Spacer1" type="Control" parent="Center/VBox"]
+custom_minimum_size = Vector2(0, 20)
+
+[node name="MenuPanel" type="Panel" parent="Center/VBox"]
+custom_minimum_size = Vector2(280, 140)
+
+[node name="VBox" type="VBoxContainer" parent="Center/VBox/MenuPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="Center/VBox/MenuPanel/VBox"]
+text = "重新启航"
+custom_minimum_size = Vector2(240, 44)
+
+[node name="MainMenuButton" type="Button" parent="Center/VBox/MenuPanel/VBox"]
 text = "返回主菜单"
-custom_minimum_size = Vector2(160, 36)
+custom_minimum_size = Vector2(240, 44)
+
+[node name="Spacer2" type="Control" parent="Center/VBox"]
+custom_minimum_size = Vector2(0, 12)
+
+[node name="Hint" type="Label" parent="Center/VBox"]
+text = "按 Enter 重新启航"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 12
