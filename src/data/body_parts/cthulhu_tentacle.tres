@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BodyPartData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/BodyPartData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cthulhu_tentacle"
+display_name = "克苏鲁触手"
+deity_source = "克苏鲁"
+slot = 2
+rarity = 3
+faction = 1
+description = "替换左臂为触手，攻击范围+30%，攻击附带精神污染"
+stat_bonuses = {"attack_range": 0.3, "attack": 8, "san_damage": 2}
+san_pollution_per_min = 0.5
+unlock_ability = ""
+unlock_terrain = ""
+visual_effect = "左臂触手化"
+upgrade_level = 0
+max_upgrade = 5
+set_id = "cthulhu_set"

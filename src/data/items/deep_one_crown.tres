@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "deep_one_crown"
+display_name = "深潜者王冠"
+display_name_en = "Deep One Crown"
+rarity = 2
+item_type = 0
+category = 11
+description = "+10%水系伤害，+5水下时间"
+effect_description = "+10% 水系伤害 / +5 水下时间"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 1
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = "deep_one_set"
+faction_tags = Array[String](["blood"])
+lore_text = "出自《印斯茅斯之影》。深潜者是鱼首人身的两栖种族，灰绿的鳞皮湿冷，栖于魔鬼礁下名为伊哈斯里的巨柱之城。它们以黄金与鱼获换取岸上活人献祭，承其血脉的子嗣终将褪尽人形跃入深海。这顶王冠属于深潜者王族，珠光黯淡，仿佛浸透了千年的海水与低语。"
+lore_short = "深潜者王族的冠冕，浸透了千年的海水与低语。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

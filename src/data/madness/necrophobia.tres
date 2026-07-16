@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "necrophobia"
+display_name = "尸惧"
+buff_description = "对亡灵系敌人伤害+30%"
+debuff_description = "被亡灵系敌人攻击时SAN损失翻倍"
+trigger_condition = "san_loss"
+trigger_threshold = 6
+related_deity = ""
+duration = "until_cured"

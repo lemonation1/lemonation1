@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "clairvoyance"
+display_name = "通灵"
+buff_description = "可看到地图全部区域，发现隐藏道具"
+debuff_description = "每10秒触发一次随机SAN损失(1d3)"
+trigger_condition = "san_loss"
+trigger_threshold = 9
+related_deity = "犹格·索托斯"
+duration = "until_cured"

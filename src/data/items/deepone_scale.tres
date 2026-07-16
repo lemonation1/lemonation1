@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "deepone_scale"
+display_name = "深潜者鳞片"
+display_name_en = "Deepone Scale"
+rarity = 1
+item_type = 0
+category = 2
+description = "+5水下时长"
+effect_description = "+5 水下时长"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 1
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["blood"])
+lore_text = "出自《印斯茅斯之影》中描述的深潜者——鱼首人身的两栖种族，灰绿的鳞皮湿冷，栖于魔鬼礁下名为伊哈斯里的巨柱之城。这片鳞片触感冰凉，在月光下泛着诡异的虹光，仿佛仍残留着深海的低语。"
+lore_short = "深潜者的鳞片，残留着深海的低语。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=3 uid="uid://itemdetail_scene_001"]
+
+[ext_resource type="Script" path="res://src/ui/ItemDetailPopup.gd" id="1"]
+
+[sub_resource type="StyleBoxEmpty" id="EmptyStyle"]
+
+[node name="ItemDetailPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource("1")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Center"]
+custom_minimum_size = Vector2(520, 420)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Center/Panel/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "道具名称"
+theme_override_font_sizes/font_size = 22
+
+[node name="RarityLabel" type="Label" parent="Center/Panel/VBox/Header"]
+layout_mode = 2
+text = "绿阶"
+theme_override_font_sizes/font_size = 14
+
+[node name="TypeLabel" type="Label" parent="Center/Panel/VBox/Header"]
+layout_mode = 2
+text = "被动"
+theme_override_font_sizes/font_size = 14
+
+[node name="HSeparator" type="HSeparator" parent="Center/Panel/VBox"]
+layout_mode = 2
+
+[node name="Body" type="VBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="EffectLabel" type="Label" parent="Center/Panel/VBox/Body"]
+layout_mode = 2
+text = "效果: 无"
+autowrap_mode = 2
+theme_override_font_sizes/font_size = 14
+
+[node name="SideEffectLabel" type="Label" parent="Center/Panel/VBox/Body"]
+layout_mode = 2
+text = "代价: 无"
+autowrap_mode = 2
+theme_override_font_sizes/font_size = 13
+
+[node name="LoreShortLabel" type="Label" parent="Center/Panel/VBox/Body"]
+layout_mode = 2
+text = "「短评」"
+autowrap_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_constants/line_spacing = 2.0
+
+[node name="LoreScroll" type="ScrollContainer" parent="Center/Panel/VBox/Body"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LoreText" type="Label" parent="Center/Panel/VBox/Body/LoreScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "详细介绍..."
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 13
+theme_override_constants/line_spacing = 3.0
+
+[node name="Footer" type="HBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="CloseButton" type="Button" parent="Center/Panel/VBox/Footer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+text = "关闭 [Esc]"

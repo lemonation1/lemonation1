@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "elder_sign_small"
+display_name = "旧印石板小"
+display_name_en = "Lesser Elder Sign"
+rarity = 1
+item_type = 0
+category = 1
+description = "+5 SAN抗性"
+effect_description = "+5 SAN抗性"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 0
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["heart"])
+lore_text = "一枚刻有歪斜五芒星的灰白石片，中央那似眼非眼、似火非火的纹路会在月色下微微颤动。它是旧神遗落人间的契约之印，那些潜伏于黑暗中的低语之物，见了它便会沉默退却。这枚石板虽小，却承载着比黑暗更古老的畏惧。"
+lore_short = "旧神的契约之印，黑暗之物见之退却。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

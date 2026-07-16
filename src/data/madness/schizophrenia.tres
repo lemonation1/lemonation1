@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "schizophrenia"
+display_name = "精神分裂"
+buff_description = "获得额外一个流派的被动效果"
+debuff_description = "随机切换控制方向(左/右反转)，每30秒触发"
+trigger_condition = "san_loss"
+trigger_threshold = 15
+related_deity = "奈亚拉托提普"
+duration = "until_cured"

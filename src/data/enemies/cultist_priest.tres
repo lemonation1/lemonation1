@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cultist_priest"
+display_name = "邪教祭司"
+category = 0
+serves_deity = "克苏鲁"
+description = "主持仪式的高阶信徒"
+habitat = "路易斯安那沼泽"
+combat_role = 2
+base_hp = 200
+base_damage = 15
+base_speed = 60.0
+abilities = Array[String](["summon_cultist", "san_drain"])
+special_mechanics = Array[String]([])
+san_loss_on_sight_first = "1d6"
+san_loss_on_sight_repeat = "1d3"
+is_servant_race = false
+weakness = ""
+drop_table = {"green": Array[String](["cultist_charm", "yellow_mark_small"]), "blue": Array[String](["yellow_king_page"])}

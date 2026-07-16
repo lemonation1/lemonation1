@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "elder_sign_tablet"
+display_name = "旧印石碑"
+display_name_en = "Elder Sign Tablet"
+rarity = 2
+item_type = 0
+category = 1
+description = "+10 SAN抗性，免疫一次致命SAN损失"
+effect_description = "+10 SAN抗性 / 免疫一次致命SAN损失"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 0
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = 1
+charge_type = "per_run"
+set_id = ""
+faction_tags = Array[String](["heart"])
+lore_text = "完整的石碑上刻着旧印——那歪斜的五芒星与中央似眼非眼、似火非火的纹路。它在月色下微微颤动，是旧神遗落人间的契约之印。石碑的力量远胜碎片，那些潜伏于黑暗中的低语之物见了它便沉默退却，仿佛它唤醒了某种比它们更古老的畏惧。"
+lore_short = "完整的旧印石碑，唤醒比黑暗更古老的畏惧。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BodyPartData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/BodyPartData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cthulhu_eye"
+display_name = "克苏鲁之眼"
+deity_source = "克苏鲁"
+slot = 0
+rarity = 3
+faction = 1
+description = "额头生第三眼，可见隐藏路径，SAN抗性+5"
+stat_bonuses = {"san_resist": 5, "perception": 10}
+san_pollution_per_min = 0.3
+unlock_ability = "true_sight"
+unlock_terrain = "hidden_path"
+visual_effect = "额头第三眼"
+upgrade_level = 0
+max_upgrade = 5
+set_id = "cthulhu_set"

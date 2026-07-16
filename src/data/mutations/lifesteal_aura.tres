@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MutationData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MutationData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "lifesteal_aura"
+display_name = "吸血光环"
+faction = 0
+effect_description = "攻击附带5%吸血"
+duration = "per_level"

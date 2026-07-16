@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "migo_gun_frag"
+display_name = "米·戈电枪残"
+display_name_en = "Mi-Go Gun Fragment"
+rarity = 1
+item_type = 1
+category = 3
+description = "主动5-10闪电伤害"
+effect_description = "5-10 闪电伤害"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 4
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = 3
+charge_type = "per_level"
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "米·戈掌握着远超人类的技艺——能将活人的大脑取出封入金属圆筒，使其在无体之境中永远清醒。这柄破损的电枪残骸仍残留着异星能量，电弧在金属管中微弱地跳动，仿佛仍在聆听群星之间的低语。"
+lore_short = "异族科技的残骸，仍在聆听群星的低语。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

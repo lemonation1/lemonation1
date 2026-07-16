@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "yellow_king_page"
+display_name = "黄衣之王残页"
+display_name_en = "Yellow King Page"
+rarity = 1
+item_type = 0
+category = 0
+description = "+10%精神抗性"
+effect_description = "+10% 精神抗性"
+side_effect_type = 1
+side_effect_value = "2"
+source_pool = 2
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "出自钱伯斯《黄衣之王》的残页。剧本的独白疯狂而哀婉，讲述着卡尔克萨湖畔的黑星与双子日。据说读完全剧的人无一幸免——他们的理智被帷幕后的存在所吞噬。这仅是一页，但注视它时，你仿佛听见了远方的竖琴。"
+lore_short = "剧本残页上的对白，让人听见远方的竖琴。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BodyPartData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/BodyPartData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "shub_flesh"
+display_name = "莎布血肉"
+deity_source = "莎布·尼古拉丝"
+slot = 1
+rarity = 3
+faction = 0
+description = "胸腔嵌入神肉，生命+2，每秒回血1"
+stat_bonuses = {"hp": 2, "regen": 1, "defense": 5}
+san_pollution_per_min = 0.4
+unlock_ability = ""
+unlock_terrain = ""
+visual_effect = "胸腔蠕动血肉"
+upgrade_level = 0
+max_upgrade = 5
+set_id = "shub_set"

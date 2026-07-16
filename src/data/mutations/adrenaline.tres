@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MutationData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MutationData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "adrenaline"
+display_name = "肾上腺素"
+faction = 0
+effect_description = "移动速度+15%，冲刺CD-20%"
+duration = "per_level"

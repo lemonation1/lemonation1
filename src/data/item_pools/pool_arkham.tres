@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemPoolData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemPoolData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+pool_type = 0
+display_name = "阿卡姆"
+area = "阿卡姆/普罗维登斯"
+item_weights = {"necronomicon_page": 1.0, "elder_sign_small": 0.8, "elder_sign_amulet": 0.6, "cross": 0.7, "yellow_mark_small": 0.5, "cultist_charm": 0.5, "flesh_growth_tissue": 0.3, "material_eldritch_residue": 0.9}
+depleted = false
+special_items = Array[String]([])
+special_count_modifier = 1.0

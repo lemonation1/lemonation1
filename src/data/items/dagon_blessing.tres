@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "dagon_blessing"
+display_name = "达贡祝福"
+display_name_en = "Dagon's Blessing"
+rarity = 2
+item_type = 0
+category = 2
+description = "+15%水系伤害，水下时间翻倍"
+effect_description = "+15% 水系伤害 / 水下时间x2"
+side_effect_type = 1
+side_effect_value = "1"
+source_pool = 1
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["blood"])
+lore_text = "当海面在无月之夜隆起，父神达贡从墨色波涛中缓缓升起——鳞甲覆身，目如盲渊。千年来他与配偶海德拉沉睡于魔鬼礁下的城邦，等待潮水淹没大地之时唤醒那位在拉莱耶安眠的旧主。达贡的祝福让你与深海融为一体，但你的皮肤开始变得湿冷……"
+lore_short = "深海巨神的祝福，你的皮肤开始变得湿冷。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

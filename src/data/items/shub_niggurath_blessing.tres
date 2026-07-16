@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "shub_niggurath_blessing"
+display_name = "莎布祝福"
+display_name_en = "Shub's Blessing"
+rarity = 2
+item_type = 0
+category = 5
+description = "+2血肉增生槽等级，生命+1"
+effect_description = "+2 血肉增生槽 / +1 HP"
+side_effect_type = 1
+side_effect_value = "1"
+source_pool = 2
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["blood"])
+lore_text = "莎布·尼古拉丝——无尽的黑暗丰饶本身，一团翻涌溃烂的乌云肉块，触手与滴着黏液的巨口在其中生生灭灭，黑色的羊蹄在虚无中踏出回响。凡森林深处新月之夜的祭坛，皆可闻\"咿啊！莎布·尼古拉丝！\"的颂声。黑暗母神的祝福让血肉在你身上疯狂生长，额外的增生槽是她的馈赠。"
+lore_short = "黑暗母神的祝福，血肉在你身上疯狂生长。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

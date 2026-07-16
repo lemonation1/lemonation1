@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "mania"
+display_name = "狂躁"
+buff_description = "攻击速度+25%，移动速度+10%"
+debuff_description = "每5秒损失1SAN"
+trigger_condition = "san_loss"
+trigger_threshold = 10
+related_deity = ""
+duration = "until_cured"

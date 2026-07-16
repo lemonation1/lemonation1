@@ -1,0 +1,194 @@
+[gd_scene load_steps=2 format=3 uid="uid://inventory_screen_001"]
+
+[ext_resource type="Script" path="res://src/ui/InventoryScreen.gd" id="1"]
+
+[node name="InventoryScreen" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1")
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0.03, 0.03, 0.06, 0)
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="Margin/VBox"]
+alignment = 1
+
+[node name="Title" type="Label" parent="Margin/VBox/Header"]
+text = "禁忌行囊 · 背包"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Margin/VBox/Header"]
+custom_minimum_size = Vector2(40, 0)
+
+[node name="CloseButton" type="Button" parent="Margin/VBox/Header"]
+custom_minimum_size = Vector2(80, 32)
+text = "关闭 [Tab]"
+
+[node name="Hint" type="Label" parent="Margin/VBox"]
+text = "左键拖拽移动 · 右键旋转 · 双击解读禁忌典籍 · Del丢弃"
+horizontal_alignment = 1
+
+[node name="Body" type="HBoxContainer" parent="Margin/VBox"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="LeftPanel" type="Panel" parent="Margin/VBox/Body"]
+custom_minimum_size = Vector2(520, 0)
+size_flags_vertical = 3
+
+[node name="Margin2" type="MarginContainer" parent="Margin/VBox/Body/LeftPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="Margin/VBox/Body/LeftPanel/Margin2"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="PanelTitle" type="Label" parent="Margin/VBox/Body/LeftPanel/Margin2/VBox"]
+text = "收纳网格 · 8×6"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="Control" parent="Margin/VBox/Body/LeftPanel/Margin2/VBox"]
+custom_minimum_size = Vector2(480, 360)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="GridBg" type="ColorRect" parent="Margin/VBox/Body/LeftPanel/Margin2/VBox/GridContainer"]
+offset_right = 480.0
+offset_bottom = 360.0
+color = Color(0.05, 0.06, 0.09, 0.9)
+
+[node name="GridLines" type="Control" parent="Margin/VBox/Body/LeftPanel/Margin2/VBox/GridContainer"]
+offset_right = 480.0
+offset_bottom = 360.0
+mouse_filter = 2
+
+[node name="ItemLayer" type="Control" parent="Margin/VBox/Body/LeftPanel/Margin2/VBox/GridContainer"]
+offset_right = 480.0
+offset_bottom = 360.0
+mouse_filter = 2
+
+[node name="StatusBox" type="VBoxContainer" parent="Margin/VBox/Body/LeftPanel/Margin2/VBox"]
+theme_override_constants/separation = 4
+
+[node name="GridUsageLabel" type="Label" parent="Margin/VBox/Body/LeftPanel/Margin2/VBox/StatusBox"]
+text = "网格: 0 / 48"
+horizontal_alignment = 1
+
+[node name="SanPollutionLabel" type="Label" parent="Margin/VBox/Body/LeftPanel/Margin2/VBox/StatusBox"]
+text = "SAN污染: 0.0 / 分钟"
+horizontal_alignment = 1
+
+[node name="RightPanel" type="Panel" parent="Margin/VBox/Body"]
+custom_minimum_size = Vector2(360, 0)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Margin2" type="MarginContainer" parent="Margin/VBox/Body/RightPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+mouse_filter = 2
+
+[node name="ScrollBox" type="ScrollContainer" parent="Margin/VBox/Body/RightPanel/Margin2"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DetailVBox" type="VBoxContainer" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="DetailTitle" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = "道具详情"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = "—"
+horizontal_alignment = 1
+
+[node name="RarityLabel" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = ""
+
+[node name="TypeLabel" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = ""
+
+[node name="Sep1" type="HSeparator" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+
+[node name="EffectLabel" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = ""
+autowrap_mode = 3
+
+[node name="SanCostLabel" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = ""
+
+[node name="Sep2" type="HSeparator" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+
+[node name="LoreTitle" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = "短评"
+
+[node name="LoreShortLabel" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = ""
+autowrap_mode = 3
+
+[node name="LoreTextTitle" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = "详细介绍"
+
+[node name="LoreTextLabel" type="Label" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+text = ""
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+custom_minimum_size = Vector2(0, 12)
+
+[node name="DecodeButton" type="Button" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+custom_minimum_size = Vector2(0, 40)
+text = "解读禁忌典籍"
+
+[node name="DiscardButton" type="Button" parent="Margin/VBox/Body/RightPanel/Margin2/ScrollBox/DetailVBox"]
+custom_minimum_size = Vector2(0, 40)
+text = "丢弃 [Del]"

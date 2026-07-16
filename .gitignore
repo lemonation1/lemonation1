@@ -1,0 +1,27 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+/builds/
+
+# Imported translations (automatically generated)
+*.translation
+
+# Mono / C# specific
+.mono/
+data_*/
+mono_crash.*.json
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Save files
+user://saves/
+
+# Godot MCP plugin (third-party addon)
+/addons/godot_mcp/

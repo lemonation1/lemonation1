@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cultist_charm"
+display_name = "邪教徒符咒"
+display_name_en = "Cultist Charm"
+rarity = 1
+item_type = 0
+category = 4
+description = "+3%法术伤害"
+effect_description = "+3% 法术伤害"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 2
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "邪教徒身上的符咒，沾染了祭祀仪式的血迹与疯狂。它上面的符号扭曲而不可辨识，佩戴它的人能感到一股异样的力量涌入——那是来自深渊的馈赠，代价是理智的缓慢流失。"
+lore_short = "沾染祭祀血迹的符咒，深渊的馈赠附带着代价。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

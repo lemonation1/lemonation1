@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "shogoth_spawn"
+display_name = "修格斯幼体"
+category = 2
+serves_deity = "莎布·尼古拉丝"
+description = "可变形的黑色原生质生物"
+habitat = "疯狂山脉"
+combat_role = 0
+base_hp = 80
+base_damage = 14
+base_speed = 50.0
+abilities = Array[String](["shape_shift"])
+special_mechanics = Array[String]([])
+san_loss_on_sight_first = "1d6"
+san_loss_on_sight_repeat = "0/1"
+is_servant_race = false
+weakness = "fire"
+drop_table = {"green": Array[String](["flesh_growth_tissue"]), "blue": Array[String]([])}

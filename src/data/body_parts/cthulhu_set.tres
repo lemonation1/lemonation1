@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SetBonusData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/SetBonusData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cthulhu_set"
+display_name = "克苏鲁套装"
+required_parts = Array[String](["cthulhu_tentacle", "cthulhu_eye"])
+bonus_effect = "san_damage_immune_self"
+bonus_description = "免疫自身SAN污染，精神攻击+30%"
+applicable_factions = Array[String](["knowledge"])

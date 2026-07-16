@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "dagon_scale_frag"
+display_name = "达贡之鳞碎片"
+display_name_en = "Dagon Scale Fragment"
+rarity = 1
+item_type = 0
+category = 2
+description = "+5%水系伤害"
+effect_description = "+5% 水系伤害"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 1
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["blood"])
+lore_text = "当海面在无月之夜隆起，父神达贡从墨色波涛中缓缓升起——那是鳞甲覆身、目如盲渊的深海巨神。这块鳞片碎片来自达贡自身，它比深潜者的鳞片更坚硬、更冰冷，隐约传递着远古海洋的重量。"
+lore_short = "深海巨神的鳞甲，承载着远古海洋的重量。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

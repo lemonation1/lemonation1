@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cthulhu_dream_lens"
+display_name = "克苏鲁梦之透镜"
+display_name_en = "Cthulhu Dream Lens"
+rarity = 2
+item_type = 0
+category = 0
+description = "+15%精神攻击，可窥见幻梦境"
+effect_description = "+15% 精神攻击 / 幻梦境可见"
+side_effect_type = 2
+side_effect_value = "1"
+source_pool = 11
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "克苏鲁沉睡在太平洋海底古城拉莱耶，当群星归位时将苏醒吞噬世界。他的梦境能跨越海洋侵蚀全世界敏感者的心智——威尔考克斯的雕塑、纽约的暴动，皆是他的梦呓。这枚透镜由梦中也受其侵扰的疯匠所磨，透过它，你能看到梦境与现实的交界，但每一次窥视都让深渊向你多看一眼。"
+lore_short = "疯匠磨制的透镜，窥视梦境与现实的交界。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

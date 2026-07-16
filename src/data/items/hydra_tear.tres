@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "hydra_tear"
+display_name = "海德拉之泪"
+display_name_en = "Hydra's Tear"
+rarity = 1
+item_type = 1
+category = 8
+description = "主动1d4回血"
+effect_description = "恢复 1d4 HP"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 1
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["blood"])
+lore_text = "母神海德拉栖居在伊哈斯里城最深处的神殿，身躯因千万年的繁衍而臃肿如山。每当祭司低诵“咿啊！海德拉！”，海底便传来她绵长而悲怆的回应。这颗泪珠晶莹剔透，却带着深渊母性的哀恸。"
+lore_short = "深渊母神的眼泪，晶莹却哀恸。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

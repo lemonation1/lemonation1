@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "megalomania"
+display_name = "自大"
+buff_description = "全属性+10%"
+debuff_description = "无法主动撤退或使用传送"
+trigger_condition = "san_loss"
+trigger_threshold = 12
+related_deity = "奈亚拉托提普"
+duration = "until_cured"

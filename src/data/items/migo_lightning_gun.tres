@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "migo_lightning_gun"
+display_name = "米·戈闪电枪"
+display_name_en = "Mi-Go Lightning Gun"
+rarity = 2
+item_type = 1
+category = 3
+description = "主动10-20闪电伤害，麻痹2秒"
+effect_description = "10-20 闪电伤害 / 麻痹2秒"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 4
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = 3
+charge_type = "per_level"
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "出自《暗夜呢喃》中米·戈的完整武器。它们形如五尺长的粉红色甲壳真菌，能以变色的韵律彼此交谈，掌握着远超人类的技艺——能将活人的大脑取出封入金属圆筒。这柄闪电枪的电弧在金属管中跳动，它曾穿梭于群星之间，如今落入你手。"
+lore_short = "星际真菌族的完整武器，曾穿梭于群星之间。"
+san_cost_on_use = 0
+permanent_san_cap_cost = 0
