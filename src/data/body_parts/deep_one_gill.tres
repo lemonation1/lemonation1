@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BodyPartData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/BodyPartData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "deep_one_gill"
+display_name = "深潜者鳃"
+deity_source = "达贡"
+slot = 1
+rarity = 2
+faction = 0
+description = "颈部生鳃，解锁水下呼吸"
+stat_bonuses = {"water_duration": 999}
+san_pollution_per_min = 0.1
+unlock_ability = "water_breathing"
+unlock_terrain = "underwater"
+visual_effect = "颈部鳃裂"
+upgrade_level = 0
+max_upgrade = 5
+set_id = "deep_one_set"

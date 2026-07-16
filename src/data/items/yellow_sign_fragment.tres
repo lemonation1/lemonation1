@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "yellow_sign_fragment"
+display_name = "黄色印记碎片"
+display_name_en = "Yellow Sign Fragment"
+rarity = 2
+item_type = 0
+category = 4
+description = "+10%精神攻击，敌人有10%概率混乱"
+effect_description = "+10% 精神攻击 / 10%敌人混乱"
+side_effect_type = 1
+side_effect_value = "1"
+source_pool = 2
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "黄色印记的碎片，注视它的人会感到思维被侵蚀..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

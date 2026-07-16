@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "migo_lightning_gun"
+display_name = "米·戈闪电枪"
+display_name_en = "Mi-Go Lightning Gun"
+rarity = 2
+item_type = 1
+category = 3
+description = "主动10-20闪电伤害，麻痹2秒"
+effect_description = "10-20 闪电伤害 / 麻痹2秒"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 4
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = 3
+charge_type = "per_level"
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "异族科技的完整武器，电弧在金属管中跳动..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

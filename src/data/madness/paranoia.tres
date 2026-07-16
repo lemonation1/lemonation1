@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "paranoia"
+display_name = "偏执"
+buff_description = "感知+20%，可看到隐藏敌人"
+debuff_description = "无法使用安全区恢复SAN"
+trigger_condition = "san_loss"
+trigger_threshold = 5
+related_deity = ""
+duration = "until_cured"

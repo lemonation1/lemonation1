@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "old_one_whisper"
+display_name = "旧日低语"
+display_name_en = "Old One Whisper"
+rarity = 2
+item_type = 1
+category = 0
+description = "主动1d6 SAN伤害+沉默3秒"
+effect_description = "1d6 SAN伤害 / 沉默3秒"
+side_effect_type = 1
+side_effect_value = "1"
+source_pool = 11
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = 2
+charge_type = "per_level"
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "旧日支配者的低语，足以撕裂凡人的心智..."
+san_cost_on_use = 2
+permanent_san_cap_cost = 0

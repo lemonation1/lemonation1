@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "deep_one_crown"
+display_name = "深潜者王冠"
+display_name_en = "Deep One Crown"
+rarity = 2
+item_type = 0
+category = 11
+description = "+10%水系伤害，+5水下时间"
+effect_description = "+10% 水系伤害 / +5 水下时间"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 1
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = "deep_one_set"
+faction_tags = Array[String](["blood"])
+lore_text = "深潜者王族佩戴过的王冠，珠光黯淡..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

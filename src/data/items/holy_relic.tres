@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "holy_relic"
+display_name = "圣遗物"
+display_name_en = "Holy Relic"
+rarity = 2
+item_type = 0
+category = 1
+description = "+8 SAN抗性，恢复+50%"
+effect_description = "+8 SAN抗性 / SAN恢复+50%"
+side_effect_type = 0
+side_effect_value = ""
+source_pool = 8
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["heart"])
+lore_text = "被祝福的圣遗物，散发着温暖的光..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

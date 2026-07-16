@@ -33,6 +33,59 @@ func load_level(chapter_id: String, sub_level_id: String) -> void:
         SANManager.set_pollution_multiplier(data.pollution_multiplier)
     EventBus.level_loaded.emit(chapter_id, sub_level_id)
 
+
+## 获取当前关卡的子关卡数据
+func get_current_sub_level_data() -> Dictionary:
+    var data = get_level_data(_current_chapter)
+    if data == null:
+        return {}
+    for sub in data.sub_levels:
+        if sub.get("id", "") == _current_sub_level:
+            return sub
+    return {}
+
+
+## 加载下一个子关卡, 返回是否有下一关
+func load_next_sub_level() -> bool:
+    var data = get_level_data(_current_chapter)
+    if data == null:
+        return false
+    var found_current = false
+    for sub in data.sub_levels:
+        if found_current:
+            var next_id = sub.get("id", "")
+            var next_scene = sub.get("scene", "")
+            _current_sub_level = next_id
+            if next_scene != "":
+                LevelTransition.transition_to(next_scene)
+            else:
+                EventBus.level_loaded.emit(_current_chapter, next_id)
+            return true
+        if sub.get("id", "") == _current_sub_level:
+            found_current = true
+    # 当前章节没有更多子关卡, 尝试下一章节
+    return _load_next_chapter()
+
+
+## 加载下一章节的第一个子关卡
+func _load_next_chapter() -> bool:
+    var next_chapter_num = _current_chapter.to_int() + 1
+    var next_chapter_id = "C" + str(next_chapter_num)
+    var data = get_level_data(next_chapter_id)
+    if data == null:
+        return false  # 没有更多章节
+    if data.sub_levels.is_empty():
+        return false
+    var first_sub = data.sub_levels[0]
+    _current_chapter = next_chapter_id
+    _current_sub_level = first_sub.get("id", "")
+    var scene_path = first_sub.get("scene", "")
+    if scene_path != "":
+        LevelTransition.transition_to(scene_path)
+    else:
+        EventBus.level_loaded.emit(_current_chapter, _current_sub_level)
+    return true
+
 func complete_level(chapter_id: String, sub_level_id: String) -> void:
     var key = chapter_id + "-" + sub_level_id
     if key not in _completed_levels:

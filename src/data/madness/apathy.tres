@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "apathy"
+display_name = "漠然"
+buff_description = "免疫SAN阶段减益效果"
+debuff_description = "无法恢复HP，安全区无效"
+trigger_condition = "san_loss"
+trigger_threshold = 20
+related_deity = ""
+duration = "until_cured"

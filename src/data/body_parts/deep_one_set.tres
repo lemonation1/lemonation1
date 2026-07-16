@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SetBonusData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/SetBonusData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "deep_one_set"
+display_name = "深潜者套装"
+required_parts = Array[String](["deep_one_gill", "deep_one_crown"])
+bonus_effect = "water_master"
+bonus_description = "水下无限时间，水系伤害+25%"
+applicable_factions = Array[String](["blood"])

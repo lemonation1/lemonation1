@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MutationData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MutationData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "holy_ward"
+display_name = "神圣守护"
+faction = 2
+effect_description = "受到致命伤害时免死一次，恢复至1HP"
+duration = "per_level"

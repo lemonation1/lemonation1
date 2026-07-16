@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/BossData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "cthulhu"
+display_name = "克苏鲁"
+god_tier = 1
+element = 0
+title = "拉莱耶之主"
+description = "沉睡在太平洋海底古城拉莱耶的旧日支配者，当群星归位时将苏醒吞噬世界。"
+habitat = "拉莱耶"
+abilities = Array[String](["心灵感应", "操控梦境", "非欧几何变形", "精神污染"])
+avatars = Array[String](["star_spawn"])
+family = {"parent": "", "spouse": "", "children": Array[String](["gth", "yth"]), "sibling": Array[String](["hastur"])}
+worshippers = Array[String](["deep_one", "cultist"])
+nemesis = ""
+level_id = "C1"
+drop_parts = Array[String](["cthulhu_tentacle", "cthulhu_eye"])
+is_scripted_death = true
+combat_phases = Array[Dictionary]([{"name": "追击", "desc": "克苏鲁追逐玩家，需逃至出口", "threshold": 1.0}, {"name": "阻碍", "desc": "触手阻挡路径，需斩断", "threshold": 0.5}, {"name": "惊醒", "desc": "船撞击克苏鲁头部，短暂击退", "threshold": 0.0}])
+san_loss_on_encounter = "1d10"
+permanent_san_loss = "1d4"
+recommended_faction = "heart"

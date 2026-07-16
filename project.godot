@@ -31,6 +31,7 @@ MutationManager="*res://src/core/MutationManager.gd"
 MadnessManager="*res://src/core/MadnessManager.gd"
 ItemPoolManager="*res://src/core/ItemPoolManager.gd"
 AtmosphereManager="*res://src/core/AtmosphereManager.gd"
+LevelTransition="*res://src/core/LevelTransition.gd"
 SaveManager="*res://src/core/SaveManager.gd"
 
 [display]

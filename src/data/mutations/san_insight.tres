@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MutationData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MutationData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "san_insight"
+display_name = "疯狂洞察"
+faction = 1
+effect_description = "SAN越低法术伤害越高(每损失10SAN+5%)"
+duration = "per_level"

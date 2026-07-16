@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "hallucination"
+display_name = "幻觉"
+buff_description = "法术伤害+15%"
+debuff_description = "场景中生成幻觉敌人，仅造成SAN损失"
+trigger_condition = "san_loss"
+trigger_threshold = 8
+related_deity = "克苏鲁"
+duration = "until_cured"

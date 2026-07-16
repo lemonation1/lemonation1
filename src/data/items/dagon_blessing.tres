@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "dagon_blessing"
+display_name = "达贡祝福"
+display_name_en = "Dagon's Blessing"
+rarity = 2
+item_type = 0
+category = 2
+description = "+15%水系伤害，水下时间翻倍"
+effect_description = "+15% 水系伤害 / 水下时间x2"
+side_effect_type = 1
+side_effect_value = "1"
+source_pool = 1
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["blood"])
+lore_text = "达贡的祝福让你与深海融为一体..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0

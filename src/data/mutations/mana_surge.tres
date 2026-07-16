@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MutationData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MutationData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "mana_surge"
+display_name = "灵能涌动"
+faction = 1
+effect_description = "主动道具充能+1，使用CD-20%"
+duration = "per_level"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SetBonusData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/SetBonusData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "shub_set"
+display_name = "莎布套装"
+required_parts = Array[String](["shub_flesh"])
+bonus_effect = "flesh_regen"
+bonus_description = "每秒回血+2，受到致命伤害时有30%概率存活"
+applicable_factions = Array[String](["blood"])

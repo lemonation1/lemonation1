@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MadnessData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/MadnessData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "hydrophobia"
+display_name = "恐水"
+buff_description = "火系伤害+25%"
+debuff_description = "接触水域时持续SAN损失"
+trigger_condition = "san_loss"
+trigger_threshold = 7
+related_deity = "克苏鲁"
+duration = "until_cured"

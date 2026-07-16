@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "necronomicon_fragment"
+display_name = "死灵之书残卷"
+display_name_en = "Necronomicon Fragment"
+rarity = 2
+item_type = 0
+category = 0
+description = "+12神话伤害，每5秒召唤触手攻击"
+effect_description = "+12 神话伤害 / 触手自动攻击"
+side_effect_type = 2
+side_effect_value = "2"
+source_pool = 11
+is_special = false
+max_stack = 1
+stack_unlock_condition = ""
+charges = -1
+charge_type = ""
+set_id = ""
+faction_tags = Array[String](["knowledge"])
+lore_text = "拼凑出的残卷，上面的咒文让你能触碰彼岸的力量..."
+san_cost_on_use = 0
+permanent_san_cap_cost = 0
